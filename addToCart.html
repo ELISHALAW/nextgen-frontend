@@ -19,25 +19,30 @@
             color: white;
             border-color: #1A1A1A;
         }
+
+        /* Mobile Image Optimization */
+        .product-image-container {
+            aspect-ratio: 4 / 4.2;
+        }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-900 min-h-screen flex flex-col">
 
     <!-- Header -->
-    <header class="bg-[#1A1A1A] shadow-lg sticky top-0 z-40 py-5">
-        <nav class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+    <header class="bg-[#1A1A1A] shadow-lg sticky top-0 z-40 py-4 md:py-5">
+        <nav class="max-w-7xl mx-auto px-4 md:px-6 flex justify-between items-center">
             <a href="./index.html" class="flex items-center gap-3">
-                <img src="images/white.png" class="h-10 w-auto object-contain" alt="logo">
+                <img src="images/white.png" class="h-9 md:h-10 w-auto object-contain" alt="logo">
             </a>
             
-            <div class="flex items-center gap-8">
+            <div class="flex items-center gap-6 md:gap-8">
                 <a href="./index.html" class="text-white hover:text-amber-500 transition-colors font-semibold text-sm tracking-widest flex items-center gap-2">
-                    <i class="fa-solid fa-arrow-left text-xs"></i> BACK TO SHOP
+                    <i class="fa-solid fa-arrow-left text-xs"></i> 
+                    <span class="hidden sm:inline">BACK TO SHOP</span>
                 </a>
                 
-                <!-- Bag with Counter -->
                 <a href="bag.html" class="relative flex items-center gap-2 text-white hover:text-amber-500 transition-colors font-medium group">
-                    <i class="fa-solid fa-bag-shopping text-xl"></i>
+                    <i class="fa-solid fa-bag-shopping text-2xl"></i>
                     <span class="hidden md:inline">Bag</span>
                     <span id="bag-count" class="absolute -top-2 -right-2 bg-amber-500 text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full border-2 border-[#1A1A1A] hidden">
                         0
@@ -47,38 +52,39 @@
         </nav>
     </header>
 
-    <!-- CENTERED MAIN WRAPPER -->
-    <main class="flex-1 flex flex-col items-center justify-start w-full px-6 py-12">
-        <div class="w-full max-w-6xl">
+    <!-- MAIN CONTENT -->
+    <main class="flex-1 w-full px-4 md:px-6 py-8 md:py-12">
+        <div class="max-w-6xl mx-auto">
             
-            <h1 class="text-4xl font-extrabold mb-12 flex items-center justify-center gap-4 text-center">
+            <h1 class="text-3xl md:text-4xl font-extrabold mb-8 md:mb-12 flex items-center justify-center gap-3 text-center">
                 <i class="fa-solid fa-bag-shopping text-amber-500"></i>
                 Your Shopping Bag 
             </h1>
 
-            <!-- Item Card -->
-            <div class="bg-white p-10 rounded-3xl shadow-sm border border-gray-100 mx-auto">
+            <!-- Product Card -->
+            <div class="bg-white rounded-3xl shadow-sm border border-gray-100 overflow-hidden">
                 
-                <div class="flex flex-col lg:flex-row gap-12">
+                <div class="flex flex-col lg:flex-row gap-8 lg:gap-12">
                     
                     <!-- IMAGE -->
-                    <div class="lg:w-[520px] flex-shrink-0">
-                        <div class="h-full min-h-[620px] bg-gray-50 rounded-3xl overflow-hidden shadow-inner">
+                    <div class="lg:w-[520px] flex-shrink-0 px-4 pt-4 lg:p-0">
+                        <div class="product-image-container w-full bg-gray-50 rounded-3xl overflow-hidden shadow-inner">
                             <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=800&h=800&fit=crop" 
-                                 alt="Product" 
-                                 class="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-500">
+                                 alt="Premium Cotton Tee" 
+                                 class="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-700">
                         </div>
                     </div>
                     
-                    <!-- DETAILS RIGHT -->
-                    <div class="flex-1 flex flex-col">
-                        <div class="flex justify-between items-start">
+                    <!-- DETAILS -->
+                    <div class="flex-1 px-4 pb-8 lg:p-0 lg:pr-10 flex flex-col">
+                        
+                        <div class="flex justify-between items-start mt-2 lg:mt-0">
                             <div>
-                                <h3 class="font-extrabold text-6xl uppercase tracking-tighter text-gray-900">Premium</h3>
-                                <h4 class="font-extrabold text-5xl uppercase tracking-tight text-gray-800 -mt-2">Cotton Tee</h4>
+                                <h3 class="font-extrabold text-4xl md:text-5xl lg:text-6xl uppercase tracking-tighter text-gray-900">Premium</h3>
+                                <h4 class="font-extrabold text-3xl md:text-4xl lg:text-5xl uppercase tracking-tight text-gray-800 -mt-1">Cotton Tee</h4>
                             </div>
                             <div class="text-right">
-                                <p class="font-black text-5xl text-amber-600">$45.00</p>
+                                <p class="font-black text-4xl md:text-5xl text-amber-600">$45.00</p>
                             </div>
                         </div>
 
@@ -86,8 +92,8 @@
                         <div class="mt-8">
                             <p class="text-sm font-bold text-gray-500 uppercase tracking-widest mb-3">Size</p>
                             <div class="flex gap-3">
-                                <button onclick="selectSize(this)" class="option-btn active px-6 py-3 border-2 border-gray-300 rounded-2xl text-lg font-semibold">M</button>
-                                <button onclick="selectSize(this)" class="option-btn px-6 py-3 border-2 border-gray-300 rounded-2xl text-lg font-semibold">L</button>
+                                <button onclick="selectSize(this)" class="option-btn active px-7 py-3.5 border-2 border-gray-300 rounded-2xl text-lg font-semibold min-w-[60px]">M</button>
+                                <button onclick="selectSize(this)" class="option-btn px-7 py-3.5 border-2 border-gray-300 rounded-2xl text-lg font-semibold min-w-[60px]">L</button>
                             </div>
                         </div>
 
@@ -95,34 +101,35 @@
                         <div class="mt-8">
                             <p class="text-sm font-bold text-gray-500 uppercase tracking-widest mb-3">Color</p>
                             <div class="flex gap-3">
-                                <button onclick="selectColor(this)" class="option-btn active px-6 py-3 border-2 border-gray-300 rounded-2xl text-lg font-semibold">Natural</button>
-                                <button onclick="selectColor(this)" class="option-btn px-6 py-3 border-2 border-gray-300 rounded-2xl text-lg font-semibold">Black</button>
+                                <button onclick="selectColor(this)" class="option-btn active px-7 py-3.5 border-2 border-gray-300 rounded-2xl text-lg font-semibold">Natural</button>
+                                <button onclick="selectColor(this)" class="option-btn px-7 py-3.5 border-2 border-gray-300 rounded-2xl text-lg font-semibold">Black</button>
                             </div>
                         </div>
 
-                        <p id="selection" class="text-gray-500 mt-6 text-lg">
+                        <p id="selection" class="text-gray-500 mt-6 text-base md:text-lg">
                             Size: <span class="text-gray-700 font-medium">M</span> | 
                             Color: <span class="text-gray-700 font-medium">Natural</span>
                         </p>
 
-                        <div class="mt-auto pt-12 flex flex-col sm:flex-row justify-between items-end gap-8">
+                        <!-- Quantity & Stock -->
+                        <div class="mt-auto pt-10 flex flex-col sm:flex-row justify-between items-end gap-8">
                             <div>
                                 <label class="block text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">Quantity</label>
                                 <div class="flex items-center border-2 border-gray-100 rounded-2xl bg-gray-50 overflow-hidden">
-                                    <button class="px-8 py-4 hover:bg-white transition-colors text-gray-500 font-bold text-2xl">-</button>
-                                    <span class="px-12 py-4 font-black text-gray-800 bg-white border-x-2 border-gray-100 text-2xl">1</span>
-                                    <button class="px-8 py-4 hover:bg-white transition-colors text-gray-500 font-bold text-2xl">+</button>
+                                    <button onclick="changeQuantity(this)" class="px-6 py-4 hover:bg-white transition-colors text-gray-500 font-bold text-3xl leading-none">-</button>
+                                    <span id="quantity" class="px-10 py-4 font-black text-gray-800 bg-white border-x-2 border-gray-100 text-2xl">1</span>
+                                    <button onclick="changeQuantity(this)" class="px-6 py-4 hover:bg-white transition-colors text-gray-500 font-bold text-3xl leading-none">+</button>
                                 </div>
                             </div>
 
-                            <div>
-                                <span class="text-base font-bold text-green-600 bg-green-100 px-8 py-4 rounded-full uppercase tracking-wider">In Stock</span>
+                            <div class="flex items-center gap-3">
+                                <span class="text-base font-bold text-green-600 bg-green-100 px-6 py-4 rounded-full uppercase tracking-wider text-sm">In Stock</span>
                             </div>
                         </div>
 
-                        <!-- ADD TO CART BUTTON -->
+                        <!-- ADD TO CART -->
                         <button onclick="addToCart()" 
-                                class="mt-10 w-full bg-[#1A1A1A] hover:bg-black text-white font-bold text-xl py-6 rounded-2xl transition-all active:scale-95 flex items-center justify-center gap-3">
+                                class="mt-10 w-full bg-[#1A1A1A] hover:bg-black text-white font-bold text-lg md:text-xl py-6 rounded-2xl transition-all active:scale-[0.97] flex items-center justify-center gap-3 shadow-lg">
                             <i class="fa-solid fa-cart-plus"></i>
                             ADD TO CART
                         </button>
@@ -134,10 +141,11 @@
 
     <script>
         let cartItems = 0;
+        let quantity = 1;
 
         function selectSize(btn) {
             document.querySelectorAll('.option-btn').forEach(b => {
-                if (b.textContent === 'M' || b.textContent === 'L') b.classList.remove('active');
+                if (['M','L'].includes(b.textContent)) b.classList.remove('active');
             });
             btn.classList.add('active');
             updateSelection();
@@ -145,7 +153,7 @@
 
         function selectColor(btn) {
             document.querySelectorAll('.option-btn').forEach(b => {
-                if (b.textContent === 'Natural' || b.textContent === 'Black') b.classList.remove('active');
+                if (['Natural','Black'].includes(b.textContent)) b.classList.remove('active');
             });
             btn.classList.add('active');
             updateSelection();
@@ -166,24 +174,30 @@
             `;
         }
 
+        function changeQuantity(btn) {
+            if (btn.textContent === '+') {
+                quantity++;
+            } else if (quantity > 1) {
+                quantity--;
+            }
+            document.getElementById('quantity').textContent = quantity;
+        }
+
         function addToCart() {
-            cartItems++;
+            cartItems += quantity;
             const badge = document.getElementById("bag-count");
             
             badge.textContent = cartItems;
             badge.classList.remove("hidden");
 
-            // Pop animation
             badge.classList.add("scale-125");
             setTimeout(() => badge.classList.remove("scale-125"), 200);
 
-            // Success message
-            alert("✅ Item added to cart successfully!");
+            alert(`✅ ${quantity} item${quantity > 1 ? 's' : ''} added to cart successfully!`);
         }
 
         // Initialize
         updateSelection();
     </script>
-
 </body>
 </html>
