@@ -33,7 +33,7 @@
                 <li><a href="./index.html#promotion" class="flex items-center gap-2 text-white hover:text-amber-500 transition-colors font-medium"><i class="fa-solid fa-rectangle-ad"></i><span>Promotion</span></a></li>
                 <li><a href="./index.html#fashion" class="flex items-center gap-2 text-white hover:text-amber-500 transition-colors font-medium"><i class="fa-brands fa-cotton-bureau"></i><span>Fashion</span></a></li>
                 <li><a href="./index.html#contact" class="flex items-center gap-2 text-white hover:text-amber-500 transition-colors font-medium"><i class="fa-regular fa-address-book"></i><span>Contact</span></a></li>
-                <li><a href="#bag" class="flex items-center gap-2 text-white hover:text-amber-500 transition-colors font-medium"><i class="fa-solid fa-bag-shopping"></i><span>Bag</span></a></li>
+                <li class="relative list-none"><a href="./bag.html" aria-label="Shopping bag" class="flex items-center gap-2 text-white hover:text-amber-500 transition-colors font-medium"><i class="fa-solid fa-bag-shopping" aria-hidden="true"></i><span>Bag</span><span id="bag-count" aria-hidden="true"class="absolute -top-2 -right-4 flex items-center justify-center h-5 w-5 bg-amber-500 text-white text-[10px] font-bold rounded-full hidden">0</span></a></li>
             </ul>
 
             <!-- Mobile Toggle -->
@@ -147,6 +147,113 @@
     </section>
 
     <!-- Footer Script -->
-    <script src="./script.js"></script>
+    <script>
+
+         // Set product configuration parameters
+        const productDetails = {
+            id: "premium-cotton-tee",
+            name: "Premium Cotton Tee",
+            price: 45.00,
+            image: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=600"
+        };
+
+        let currentSize = 'M';
+        let currentColor = 'Natural';
+        let quantity = 1;
+
+        function selectSize(btn) {
+            document.querySelectorAll('.option-btn').forEach(b => {
+                if (['M','L'].includes(b.textContent)) b.classList.remove('active');
+            });
+            btn.classList.add('active');
+            currentSize = btn.textContent;
+            updateSelection();
+        }
+
+        function selectColor(btn) {
+            document.querySelectorAll('.option-btn').forEach(b => {
+                if (['Natural','Black'].includes(b.textContent)) color = b.textContent; // safe check fallback
+                if (['Natural','Black'].includes(b.textContent)) b.classList.remove('active');
+            });
+            btn.classList.add('active');
+            currentColor = btn.textContent;
+            updateSelection();
+        }
+
+        function updateSelection() {
+            document.getElementById('selection').innerHTML = `
+                Size: <span class="text-gray-700 font-medium">${currentSize}</span> | 
+                Color: <span class="text-gray-700 font-medium">${currentColor}</span>
+            `;
+        }
+
+        function changeQuantity(btn) {
+            if (btn.textContent === '+') {
+                quantity++;
+            } else if (quantity > 1) {
+                quantity--;
+            }
+            document.getElementById('quantity').textContent = quantity;
+        }
+
+        function updateHeaderCount() {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            let totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            const badge = document.getElementById("bag-count");
+            
+            if(totalItems > 0) {
+                badge.textContent = totalItems;
+                badge.classList.remove("hidden");
+            } else {
+                badge.classList.add("hidden");
+            }
+        }
+
+        function addToCart() {
+            // Get current cart array from localStorage
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+            // Check if the item variant already exists in cart
+            let existingItemIndex = cart.findIndex(item => 
+                item.id === productDetails.id && 
+                item.size === currentSize && 
+                item.color === currentColor
+            );
+
+            if (existingItemIndex > -1) {
+                // Update quantity if found
+                cart[existingItemIndex].quantity += quantity;
+            } else {
+                // Add new variant block if it's completely new combination
+                cart.push({
+                    id: productDetails.id,
+                    name: productDetails.name,
+                    price: productDetails.price,
+                    image: productDetails.image,
+                    size: currentSize,
+                    color: currentColor,
+                    quantity: quantity
+                });
+            }
+
+            // Save updated cart back to localStorage
+            localStorage.setItem('cart', JSON.stringify(cart));
+            
+            // Visual feedback
+            updateHeaderCount();
+            const badge = document.getElementById("bag-count");
+            badge.classList.add("scale-125");
+            setTimeout(() => badge.classList.remove("scale-125"), 200);
+
+            alert(`✅ ${quantity} item${quantity > 1 ? 's' : ''} added to cart successfully!`);
+            
+            // Reset local quantity counter view state back to 1
+            quantity = 1;
+            document.getElementById('quantity').textContent = 1;
+        }
+
+        // Initialize view header count on page load
+        updateHeaderCount();
+    </script>
 </body>
 </html>

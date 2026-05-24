@@ -69,7 +69,7 @@
                     <!-- IMAGE -->
                    <div class="lg:w-[520px] flex-shrink-0 px-4 pt-4 lg:p-0">
                         <div class="product-image-container w-full bg-gray-50 rounded-3xl overflow-hidden shadow-inner 
-                                    h-[520px] lg:h-[653px]">   <!-- ← Height increased here -->
+                                    h-[520px] lg:h-[653px]">
                             
                             <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=800&h=800&fit=crop" 
                                 alt="Premium Cotton Tee" 
@@ -142,7 +142,16 @@
     </main>
 
     <script>
-        let cartItems = 0;
+        // Set product configuration parameters
+        const productDetails = {
+            id: "premium-cotton-tee",
+            name: "Premium Cotton Tee",
+            price: 45.00,
+            image: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=600"
+        };
+
+        let currentSize = 'M';
+        let currentColor = 'Natural';
         let quantity = 1;
 
         function selectSize(btn) {
@@ -150,29 +159,24 @@
                 if (['M','L'].includes(b.textContent)) b.classList.remove('active');
             });
             btn.classList.add('active');
+            currentSize = btn.textContent;
             updateSelection();
         }
 
         function selectColor(btn) {
             document.querySelectorAll('.option-btn').forEach(b => {
+                if (['Natural','Black'].includes(b.textContent)) color = b.textContent; // safe check fallback
                 if (['Natural','Black'].includes(b.textContent)) b.classList.remove('active');
             });
             btn.classList.add('active');
+            currentColor = btn.textContent;
             updateSelection();
         }
 
         function updateSelection() {
-            const activeBtns = document.querySelectorAll('.option-btn.active');
-            let size = 'M', color = 'Natural';
-            
-            activeBtns.forEach(btn => {
-                if (['M','L'].includes(btn.textContent)) size = btn.textContent;
-                if (['Natural','Black'].includes(btn.textContent)) color = btn.textContent;
-            });
-            
             document.getElementById('selection').innerHTML = `
-                Size: <span class="text-gray-700 font-medium">${size}</span> | 
-                Color: <span class="text-gray-700 font-medium">${color}</span>
+                Size: <span class="text-gray-700 font-medium">${currentSize}</span> | 
+                Color: <span class="text-gray-700 font-medium">${currentColor}</span>
             `;
         }
 
@@ -185,21 +189,64 @@
             document.getElementById('quantity').textContent = quantity;
         }
 
-        function addToCart() {
-            cartItems += quantity;
+        function updateHeaderCount() {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            let totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
             const badge = document.getElementById("bag-count");
             
-            badge.textContent = cartItems;
-            badge.classList.remove("hidden");
+            if(totalItems > 0) {
+                badge.textContent = totalItems;
+                badge.classList.remove("hidden");
+            } else {
+                badge.classList.add("hidden");
+            }
+        }
 
+        function addToCart() {
+            // Get current cart array from localStorage
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+            // Check if the item variant already exists in cart
+            let existingItemIndex = cart.findIndex(item => 
+                item.id === productDetails.id && 
+                item.size === currentSize && 
+                item.color === currentColor
+            );
+
+            if (existingItemIndex > -1) {
+                // Update quantity if found
+                cart[existingItemIndex].quantity += quantity;
+            } else {
+                // Add new variant block if it's completely new combination
+                cart.push({
+                    id: productDetails.id,
+                    name: productDetails.name,
+                    price: productDetails.price,
+                    image: productDetails.image,
+                    size: currentSize,
+                    color: currentColor,
+                    quantity: quantity
+                });
+            }
+
+            // Save updated cart back to localStorage
+            localStorage.setItem('cart', JSON.stringify(cart));
+            
+            // Visual feedback
+            updateHeaderCount();
+            const badge = document.getElementById("bag-count");
             badge.classList.add("scale-125");
             setTimeout(() => badge.classList.remove("scale-125"), 200);
 
             alert(`✅ ${quantity} item${quantity > 1 ? 's' : ''} added to cart successfully!`);
+            
+            // Reset local quantity counter view state back to 1
+            quantity = 1;
+            document.getElementById('quantity').textContent = 1;
         }
 
-        // Initialize
-        updateSelection();
+        // Initialize view header count on page load
+        updateHeaderCount();
     </script>
 </body>
 </html>

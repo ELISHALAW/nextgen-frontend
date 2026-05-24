@@ -34,63 +34,35 @@
 
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
             
-            <!-- Items Section -->
-            <div class="lg:col-span-2 space-y-8">
-
-                <!-- Item 1 -->
-                <div class="bg-white p-6 rounded-2xl shadow-sm flex gap-6">
-                    <div class="w-32 h-32 bg-gray-100 rounded-xl overflow-hidden flex-shrink-0">
-                        <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=600" 
-                             alt="Premium Cotton Tee" class="w-full h-full object-cover">
-                    </div>
-                    <div class="flex-1">
-                        <div class="flex justify-between">
-                            <div>
-                                <h3 class="font-semibold text-xl">Premium Cotton Tee</h3>
-                                <p class="text-gray-500 mt-1">Size: M • Color: Natural</p>
-                            </div>
-                            <p class="font-bold text-2xl text-amber-600">$45</p>
-                        </div>
-                        <div class="mt-6 flex items-center justify-between">
-                            <div class="flex items-center border rounded-xl">
-                                <button class="px-4 py-2 text-xl font-medium">-</button>
-                                <span class="px-6 font-semibold">1</span>
-                                <button class="px-4 py-2 text-xl font-medium">+</button>
-                            </div>
-                            <button class="text-red-500 hover:text-red-600 transition-colors">
-                                <i class="fa-solid fa-trash-can"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- You can duplicate the item block for more items -->
-
+            <!-- Items Container Section -->
+            <div id="cart-items-container" class="lg:col-span-2 space-y-8">
+                <!-- Javascript will inject dynamic items directly here -->
             </div>
 
-            <!-- Order Summary -->
+            <!-- Order Summary Section -->
             <div class="lg:col-span-1">
                 <div class="bg-white p-8 rounded-2xl shadow-sm sticky top-24">
                     <h2 class="text-2xl font-semibold mb-6">Order Summary</h2>
                     
                     <div class="space-y-4 text-lg">
                         <div class="flex justify-between">
-                            <span class="text-gray-600">Subtotal (3 items)</span>
-                            <span class="font-medium">$135.00</span>
+                            <span id="subtotal-label" class="text-gray-600">Subtotal (0 items)</span>
+                            <span id="subtotal-price" class="font-medium">$0.00</span>
                         </div>
                         <div class="flex justify-between">
                             <span class="text-gray-600">Shipping</span>
-                            <span class="text-green-600 font-medium">FREE</span>
+                            <span id="shipping-price" class="text-green-600 font-medium">FREE</span>
                         </div>
                         <div class="h-px bg-gray-200 my-4"></div>
                         <div class="flex justify-between text-xl font-bold">
                             <span>Total</span>
-                            <span>$135.00</span>
+                            <span id="total-price" class="font-bold">$0.00</span>
                         </div>
                     </div>
 
-                    <button class="w-full mt-8 bg-black text-white py-4 rounded-2xl font-semibold text-lg hover:bg-gray-800 transition-all">
-                        PROCEED TO CHECKOUT
+                    <!-- Checkout Button Tied directly to the custom handler -->
+                    <button onclick="handleCheckout()" id="checkout-btn" class="w-full mt-8 bg-black text-white py-4 rounded-2xl font-semibold text-lg hover:bg-gray-800 transition-all flex items-center justify-center gap-2">
+                        <span>PROCEED TO CHECKOUT</span>
                     </button>
 
                     <p class="text-center text-sm text-gray-500 mt-6">
@@ -101,5 +73,177 @@
         </div>
     </main>
 
+    <script>
+        // GLOBAL SETTING: Change this to your destination email address
+        const YOUR_EMAIL = "seongchunlaw050@gmail.com"; 
+
+        let globalCart = [];
+        let globalTotalCount = 0;
+        let globalSubtotalPrice = 0;
+
+        function renderCart() {
+            const container = document.getElementById('cart-items-container');
+            globalCart = JSON.parse(localStorage.getItem('cart')) || [];
+            
+            if (globalCart.length === 0) {
+                container.innerHTML = `
+                    <div class="bg-white p-12 rounded-2xl shadow-sm text-center">
+                        <i class="fa-solid fa-folder-open text-5xl text-gray-300 mb-4"></i>
+                        <p class="text-gray-500 text-xl font-medium">Your bag is currently empty.</p>
+                        <a href="./show.html" class="inline-block mt-6 bg-amber-500 hover:bg-amber-600 text-white font-bold px-6 py-3 rounded-xl transition-colors">Shop Products</a>
+                    </div>
+                `;
+                updateSummary(0, 0);
+                toggleCheckoutButton(false);
+                return;
+            }
+
+            let htmlContent = '';
+            globalTotalCount = 0;
+            globalSubtotalPrice = 0;
+
+            globalCart.forEach((item, index) => {
+                let itemTotalCost = item.price * item.quantity;
+                globalTotalCount += item.quantity;
+                globalSubtotalPrice += itemTotalCost;
+
+                htmlContent += `
+                    <div class="bg-white p-6 rounded-2xl shadow-sm flex gap-6">
+                        <div class="w-32 h-32 bg-gray-100 rounded-xl overflow-hidden flex-shrink-0">
+                            <img src="${item.image}" alt="${item.name}" class="w-full h-full object-cover">
+                        </div>
+                        <div class="flex-1">
+                            <div class="flex justify-between">
+                                <div>
+                                    <h3 class="font-semibold text-xl">${item.name}</h3>
+                                    <p class="text-gray-500 mt-1">Size: ${item.size} • Color: ${item.color}</p>
+                                </div>
+                                <p class="font-bold text-2xl text-amber-600">$${item.price}</p>
+                            </div>
+                            <div class="mt-6 flex items-center justify-between">
+                                <div class="flex items-center border rounded-xl">
+                                    <button onclick="updateQuantity(${index}, -1)" class="px-4 py-2 text-xl font-medium hover:bg-gray-50 rounded-l-xl transition-colors">-</button>
+                                    <span class="px-6 font-semibold">${item.quantity}</span>
+                                    <button onclick="updateQuantity(${index}, 1)" class="px-4 py-2 text-xl font-medium hover:bg-gray-50 rounded-r-xl transition-colors">+</button>
+                                </div>
+                                <button onclick="removeItem(${index})" class="text-red-500 hover:text-red-600 transition-colors p-2">
+                                    <i class="fa-solid fa-trash-can"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+
+            container.innerHTML = htmlContent;
+            updateSummary(globalTotalCount, globalSubtotalPrice);
+            toggleCheckoutButton(true);
+        }
+
+        function updateQuantity(index, modifier) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            if(!cart[index]) return;
+
+            cart[index].quantity += modifier;
+
+            if (cart[index].quantity < 1) {
+                cart.splice(index, 1);
+            }
+
+            localStorage.setItem('cart', JSON.stringify(cart));
+            renderCart();
+        }
+
+        function removeItem(index) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart.splice(index, 1);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            renderCart();
+        }
+
+        function updateSummary(count, subtotal) {
+            document.getElementById('subtotal-label').textContent = `Subtotal (${count} item${count !== 1 ? 's' : ''})`;
+            document.getElementById('subtotal-price').textContent = `$${subtotal.toFixed(2)}`;
+            document.getElementById('total-price').textContent = `$${subtotal.toFixed(2)}`;
+            
+            const shipping = document.getElementById('shipping-price');
+            if(subtotal === 0) {
+                shipping.textContent = "$0.00";
+                shipping.classList.remove("text-green-600");
+                shipping.classList.add("text-gray-600");
+            } else {
+                shipping.textContent = "FREE";
+                shipping.classList.remove("text-gray-600");
+                shipping.classList.add("text-green-600");
+            }
+        }
+
+        function toggleCheckoutButton(enable) {
+            const btn = document.getElementById('checkout-btn');
+            if (enable) {
+                btn.removeAttribute('disabled');
+                btn.classList.remove('opacity-50', 'cursor-not-allowed');
+            } else {
+                btn.setAttribute('disabled', 'true');
+                btn.classList.add('opacity-50', 'cursor-not-allowed');
+            }
+        }
+
+        // Handles data compilation and pushes via endpoint
+        async function handleCheckout() {
+            if (globalCart.length === 0) return;
+
+            const checkoutBtn = document.getElementById('checkout-btn');
+            checkoutBtn.innerHTML = `<i class="fa-solid fa-circle-notch animate-spin"></i> Processing...`;
+            checkoutBtn.disabled = true;
+
+            // Generate clean plain-text breakdown for the email contents box
+            let itemsBreakdownText = "";
+            globalCart.forEach((item, i) => {
+                itemsBreakdownText += `${i + 1}. ${item.name}\n`;
+                itemsBreakdownText += `   Variant: Size ${item.size} / Color: ${item.color}\n`;
+                itemsBreakdownText += `   Quantity: ${item.quantity} x $${item.price.toFixed(2)} = $${(item.price * item.quantity).toFixed(2)}\n\n`;
+            });
+
+            // Create payload object structure targeted for FormSubmit execution
+            const formData = {
+                "__Subject": "🛒 New Premium Store Order Received!",
+                "Order Total Items": globalTotalCount,
+                "Order Total Price": `$${globalSubtotalPrice.toFixed(2)}`,
+                "Items List Details": `\n${itemsBreakdownText}`,
+                "_template": "table" // Arranges details into clean matrix structural design automatically
+            };
+
+            try {
+                // Submit payload via standard fetch directly into FormSubmit public proxy endpoint
+                const response = await fetch(`https://formsubmit.co/ajax/${YOUR_EMAIL}`, {
+                    method: "POST",
+                    headers: { 
+                        "Content-Type": "application/json",
+                        "Accept": "application/json"
+                    },
+                    body: JSON.stringify(formData)
+                });
+
+                if (response.ok) {
+                    alert("🎉 Order submitted successfully! Check your email inbox.");
+                    // Flush active local storage contents cleanly upon checkout validation pass
+                    localStorage.removeItem('cart');
+                    renderCart();
+                } else {
+                    throw new Error("Endpoint verification network reject.");
+                }
+            } catch (error) {
+                console.error(error);
+                alert("❌ Encountered a delivery communication breakdown. Please try again.");
+            } finally {
+                checkoutBtn.innerHTML = `<span>PROCEED TO CHECKOUT</span>`;
+                checkoutBtn.disabled = false;
+            }
+        }
+
+        // Initialize script loading
+        renderCart();
+    </script>
 </body>
 </html>

@@ -176,3 +176,8 @@ document
     e.preventDefault(); // Stop page jump for testing
     addToBag();
   });
+
+
+
+
+  
