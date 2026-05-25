@@ -71,7 +71,7 @@
 <body class="bg-zinc-950 text-white min-h-screen">
 
     <!-- NAV -->
-  <header class="bg-[#1A1A1A] shadow-lg sticky top-0 z-40 py-4 md:py-5">
+    <header class="bg-[#1A1A1A] shadow-lg sticky top-0 z-40 py-4 md:py-5">
         <nav class="max-w-7xl mx-auto px-4 md:px-6 flex justify-between items-center">
             <a href="./index.html" class="flex items-center gap-3">
                 <img src="images/white.png" class="h-9 md:h-10 w-auto object-contain" alt="logo">
@@ -115,7 +115,7 @@
             <!-- Product 1 -->
             <div class="product-card group bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-800">
                 <div class="image-container aspect-[4/4.5] bg-zinc-800">
-                    <img src="https://picsum.photos/id/1015/600/750" 
+                    <img src="images/minglong1.jpeg" 
                          class="product-image w-full h-full object-cover" 
                          alt="Oversized Tee">
                     <div class="absolute top-6 left-6 bg-black/70 text-white text-xs font-mono px-4 py-2 rounded-2xl">
@@ -135,7 +135,8 @@
                     </div>
                     
                     <div class="flex gap-4">
-                        <button onclick="addToBag(this)" 
+                        <!-- CHANGED to a button and passed matching items parameters dynamically -->
+                        <button onclick="addToBag('oversized-essential-tee', 'Oversized Essential Tee', 59, 'images/minglong1.jpeg')" 
                                 class="flex-1 bg-white text-black hover:bg-amber-400 hover:text-black font-semibold py-4 rounded-2xl transition-all active:scale-95">
                             Add to Bag
                         </button>
@@ -149,7 +150,7 @@
             <!-- Product 2 -->
             <div class="product-card group bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-800">
                 <div class="image-container aspect-[4/4.5] bg-zinc-800">
-                    <img src="https://picsum.photos/id/201/600/750" 
+                    <img src="images/touchpad3.jpeg" 
                          class="product-image w-full h-full object-cover" 
                          alt="Premium Shirt">
                     <div class="absolute top-6 left-6 bg-emerald-500 text-black text-xs font-bold px-4 py-2 rounded-2xl">
@@ -169,7 +170,8 @@
                     </div>
                     
                     <div class="flex gap-4">
-                        <button onclick="addToBag(this)" 
+                        <!-- Passed parameters dynamically -->
+                        <button onclick="addToBag('italian-oxford-shirt', 'Italian Oxford Shirt', 89, 'images/touchpad3.jpeg')" 
                                 class="flex-1 bg-white text-black hover:bg-amber-400 hover:text-black font-semibold py-4 rounded-2xl transition-all active:scale-95">
                             Add to Bag
                         </button>
@@ -183,7 +185,7 @@
             <!-- Product 3 -->
             <div class="product-card group bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-800">
                 <div class="image-container aspect-[4/4.5] bg-zinc-800">
-                    <img src="https://picsum.photos/id/106/600/750" 
+                    <img src="images/postcard1.jpeg" 
                          class="product-image w-full h-full object-cover" 
                          alt="Cargo Pants">
                     <div class="absolute top-6 left-6 bg-black/70 text-white text-xs font-mono px-4 py-2 rounded-2xl">
@@ -203,7 +205,8 @@
                     </div>
                     
                     <div class="flex gap-4">
-                        <button onclick="addToBag(this)" 
+                        <!-- Passed parameters dynamically -->
+                        <button onclick="addToBag('relaxed-cargo-pants', 'Relaxed Cargo Pants', 75, 'images/postcard1.jpeg')" 
                                 class="flex-1 bg-white text-black hover:bg-amber-400 hover:text-black font-semibold py-4 rounded-2xl transition-all active:scale-95">
                             Add to Bag
                         </button>
@@ -225,24 +228,39 @@
     </main>
 
     <script>
-        function addToBag(btn) {
-            btn.textContent = "Added ✓";
-            btn.classList.add('!bg-emerald-500', '!text-white');
-            
-            setTimeout(() => {
-                btn.textContent = "Add to Bag";
-                btn.classList.remove('!bg-emerald-500', '!text-white');
-            }, 2000);
+        // Modified to receive parameters dynamically from the clicked card
+        function addToBag(id, name, price, image) {
+            const selectedProduct = {
+                id: id,
+                name: name,
+                price: parseFloat(price),
+                image: image,
+                quantity: 1
+            };
+
+            // Only save the selected product for the addToCart page.
+            // Do not add to bag count until the user confirms in addToCart.html.
+            localStorage.setItem('selectedProduct', JSON.stringify(selectedProduct));
+
+            window.location.href = 'addToCart.html';
         }
 
-        // Simple bag counter animation
-        let count = 0;
+        // Calculates total units when the page loads so the layout displays accurately
         function updateBagCount() {
-            count++;
-            const bagCount = document.getElementById('bag-count');
-            bagCount.textContent = count;
-            bagCount.classList.remove('hidden');
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            let totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            const bagCountBadge = document.getElementById('bag-count');
+            
+            if (totalItems > 0) {
+                bagCountBadge.textContent = totalItems;
+                bagCountBadge.classList.remove('hidden');
+            } else {
+                bagCountBadge.classList.add('hidden');
+            }
         }
+
+        // Run the item sync calculation on page mount
+        updateBagCount();
     </script>
 </body>
 </html>

@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your Bag | Premium Fashion Store</title>
-    <link rel="icon" type="image/png" href="images/white.png">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
@@ -20,7 +19,6 @@
             border-color: #1A1A1A;
         }
 
-        /* Mobile Image Optimization */
         .product-image-container {
             aspect-ratio: 4 / 4.2;
         }
@@ -31,12 +29,12 @@
     <!-- Header -->
     <header class="bg-[#1A1A1A] shadow-lg sticky top-0 z-40 py-4 md:py-5">
         <nav class="max-w-7xl mx-auto px-4 md:px-6 flex justify-between items-center">
-            <a href="./index.html" class="flex items-center gap-3">
-                <img src="images/white.png" class="h-9 md:h-10 w-auto object-contain" alt="logo">
+            <a href="index.html" class="flex items-center gap-3">
+                <span class="text-white font-extrabold text-xl tracking-wider">NEXTGEN STUDIO</span>
             </a>
             
             <div class="flex items-center gap-6 md:gap-8">
-                <a href="./index.html" class="text-white hover:text-amber-500 transition-colors font-semibold text-sm tracking-widest flex items-center gap-2">
+                <a href="index.html" class="text-white hover:text-amber-500 transition-colors font-semibold text-sm tracking-widest flex items-center gap-2">
                     <i class="fa-solid fa-arrow-left text-xs"></i> 
                     <span class="hidden sm:inline">BACK TO HOME</span>
                 </a>
@@ -44,53 +42,39 @@
                 <a href="bag.html" class="relative flex items-center gap-2 text-white hover:text-amber-500 transition-colors font-medium group">
                     <i class="fa-solid fa-bag-shopping text-2xl"></i>
                     <span class="hidden md:inline">Bag</span>
-                    <span id="bag-count" class="absolute -top-2 -right-2 bg-amber-500 text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full border-2 border-[#1A1A1A] hidden">
-                        0
-                    </span>
+                    <span id="bag-count" class="absolute -top-2 -right-2 bg-amber-500 text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full border-2 border-[#1A1A1A] hidden">0</span>
                 </a>
             </div>
         </nav>
     </header>
 
-    <!-- MAIN CONTENT -->
+    <!-- Main Content -->
     <main class="flex-1 w-full px-4 md:px-6 py-8 md:py-12">
         <div class="max-w-6xl mx-auto">
             
-            <h1 class="text-3xl md:text-4xl font-extrabold mb-8 md:mb-12 flex items-center justify-center gap-3 text-center">
-                <i class="fa-solid fa-bag-shopping text-amber-500"></i>
-                Your Shopping Bag 
-            </h1>
-
-            <!-- Product Card -->
             <div class="bg-white rounded-3xl shadow-sm border border-gray-100 overflow-hidden">
-                
                 <div class="flex flex-col lg:flex-row gap-8 lg:gap-12">
                     
-                    <!-- IMAGE -->
-                   <div class="lg:w-[520px] flex-shrink-0 px-4 pt-4 lg:p-0">
-                        <div class="product-image-container w-full bg-gray-50 rounded-3xl overflow-hidden shadow-inner 
-                                    h-[520px] lg:h-[653px]">
-                            
-                            <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=800&h=800&fit=crop" 
-                                alt="Premium Cotton Tee" 
-                                class="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-700">
+                    <!-- Image Showcase Window Frame Container -->
+                    <div class="lg:w-[520px] flex-shrink-0 px-4 pt-4 lg:p-0">
+                        <div class="product-image-container w-full bg-gray-50 rounded-3xl overflow-hidden shadow-inner h-[520px] lg:h-[653px]">
+                            <img id="product-img" src="" alt="Product Image" class="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-700">
                         </div>
                     </div>
                     
-                    <!-- DETAILS -->
-                    <div class="flex-1 px-4 pb-8 lg:p-0 lg:pr-10 flex flex-col">
-                        
+                    <!-- Dynamic Text Node Information Injection Blocks -->
+                    <div class="flex-1 px-4 pb-8 lg:p-0 lg:pr-10 flex flex-col justify-center">
                         <div class="flex justify-between items-start mt-2 lg:mt-0">
                             <div>
-                                <h3 class="font-extrabold text-4xl md:text-5xl lg:text-6xl uppercase tracking-tighter text-gray-900">Premium</h3>
-                                <h4 class="font-extrabold text-3xl md:text-4xl lg:text-5xl uppercase tracking-tight text-gray-800 -mt-1">Cotton Tee</h4>
+                                <h3 id="product-brand" class="font-extrabold text-4xl md:text-5xl lg:text-6xl uppercase tracking-tighter text-gray-900">NEXTGEN</h3>
+                                <h4 id="product-title" class="font-extrabold text-2xl md:text-3xl lg:text-4xl uppercase tracking-tight text-gray-500 -mt-1">STREETWEAR ITEM</h4>
                             </div>
                             <div class="text-right">
-                                <p class="font-black text-4xl md:text-5xl text-amber-600">$45.00</p>
+                                <p id="product-price" class="font-black text-4xl md:text-5xl text-amber-600">$0.00</p>
                             </div>
                         </div>
 
-                        <!-- Size -->
+                        <!-- Size Variations -->
                         <div class="mt-8">
                             <p class="text-sm font-bold text-gray-500 uppercase tracking-widest mb-3">Size</p>
                             <div class="flex gap-3">
@@ -99,7 +83,7 @@
                             </div>
                         </div>
 
-                        <!-- Color -->
+                        <!-- Color Variations -->
                         <div class="mt-8">
                             <p class="text-sm font-bold text-gray-500 uppercase tracking-widest mb-3">Color</p>
                             <div class="flex gap-3">
@@ -108,32 +92,30 @@
                             </div>
                         </div>
 
+                        <!-- Info Readout String Status -->
                         <p id="selection" class="text-gray-500 mt-6 text-base md:text-lg">
                             Size: <span class="text-gray-700 font-medium">M</span> | 
                             Color: <span class="text-gray-700 font-medium">Natural</span>
                         </p>
 
-                        <!-- Quantity & Stock -->
-                        <div class="mt-auto pt-10 flex flex-col sm:flex-row justify-between items-end gap-8">
+                        <!-- Counter Tool Segment Grouping Layout -->
+                        <div class="mt-8 pt-6 border-t border-gray-100 flex flex-col sm:flex-row justify-between items-end sm:items-center gap-6">
                             <div>
                                 <label class="block text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">Quantity</label>
                                 <div class="flex items-center border-2 border-gray-100 rounded-2xl bg-gray-50 overflow-hidden">
-                                    <button onclick="changeQuantity(this)" class="px-6 py-4 hover:bg-white transition-colors text-gray-500 font-bold text-3xl leading-none">-</button>
-                                    <span id="quantity" class="px-10 py-4 font-black text-gray-800 bg-white border-x-2 border-gray-100 text-2xl">1</span>
-                                    <button onclick="changeQuantity(this)" class="px-6 py-4 hover:bg-white transition-colors text-gray-500 font-bold text-3xl leading-none">+</button>
+                                    <button onclick="changeQuantity(this)" class="px-6 py-3 hover:bg-white transition-colors text-gray-500 font-bold text-2xl leading-none">-</button>
+                                    <span id="quantity" class="px-8 py-3 font-black text-gray-800 bg-white border-x-2 border-gray-100 text-xl">1</span>
+                                    <button onclick="changeQuantity(this)" class="px-6 py-3 hover:bg-white transition-colors text-gray-500 font-bold text-2xl leading-none">+</button>
                                 </div>
                             </div>
 
-                            <div class="flex items-center gap-3">
-                                <span class="text-base font-bold text-green-600 bg-green-100 px-6 py-4 rounded-full uppercase tracking-wider text-sm">In Stock</span>
-                            </div>
+                            <span class="text-base font-bold text-green-600 bg-green-50 px-6 py-3 rounded-full uppercase tracking-wider text-xs">In Stock & Ready</span>
                         </div>
 
-                        <!-- ADD TO CART -->
+                        <!-- Action Execution Dispatch Anchor -->
                         <button onclick="addToCart()" 
-                                class="mt-10 w-full bg-[#1A1A1A] hover:bg-black text-white font-bold text-lg md:text-xl py-6 rounded-2xl transition-all active:scale-[0.97] flex items-center justify-center gap-3 shadow-lg">
-                            <i class="fa-solid fa-cart-plus"></i>
-                            ADD TO CART
+                                class="mt-10 w-full bg-[#1A1A1A] hover:bg-black text-white font-bold text-lg py-5 rounded-2xl transition-all active:scale-[0.97] flex items-center justify-center gap-3 shadow-lg">
+                            <i class="fa-solid fa-cart-plus"></i> CONFIRM VARIANT & ADD
                         </button>
                     </div>
                 </div>
@@ -142,17 +124,35 @@
     </main>
 
     <script>
-        // Set product configuration parameters
-        const productDetails = {
-            id: "premium-cotton-tee",
-            name: "Premium Cotton Tee",
-            price: 45.00,
-            image: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=600"
-        };
+        // Read configuration details passed via the clicked layout target
+        const selectedProduct = JSON.parse(localStorage.getItem('selectedProduct'));
+
+        // Guard safety fallback check logic
+        if (!selectedProduct) {
+            alert("No item selected! Returning to showroom gallery list.");
+            window.location.href = 'index.html';
+        }
 
         let currentSize = 'M';
         let currentColor = 'Natural';
         let quantity = 1;
+
+        // Dynamic rendering execution loop handler
+        function renderPageData() {
+            document.getElementById('product-img').src = selectedProduct.image;
+            document.getElementById('product-img').alt = selectedProduct.name;
+            document.getElementById('product-price').textContent = `$${selectedProduct.price.toFixed(2)}`;
+            
+            // Clean title string spacing layout
+            const nameParts = selectedProduct.name.split(' ');
+            if (nameParts.length > 1) {
+                document.getElementById('product-brand').textContent = nameParts[0];
+                document.getElementById('product-title').textContent = nameParts.slice(1).join(' ');
+            } else {
+                document.getElementById('product-brand').textContent = "DESIGN";
+                document.getElementById('product-title').textContent = selectedProduct.name;
+            }
+        }
 
         function selectSize(btn) {
             document.querySelectorAll('.option-btn').forEach(b => {
@@ -165,7 +165,6 @@
 
         function selectColor(btn) {
             document.querySelectorAll('.option-btn').forEach(b => {
-                if (['Natural','Black'].includes(b.textContent)) color = b.textContent; // safe check fallback
                 if (['Natural','Black'].includes(b.textContent)) b.classList.remove('active');
             });
             btn.classList.add('active');
@@ -203,49 +202,37 @@
         }
 
         function addToCart() {
-            // Get current cart array from localStorage
             let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
-            // Check if the item variant already exists in cart
+            // Unique identification match profile including structural configuration variants
             let existingItemIndex = cart.findIndex(item => 
-                item.id === productDetails.id && 
+                item.id === selectedProduct.id && 
                 item.size === currentSize && 
                 item.color === currentColor
             );
 
             if (existingItemIndex > -1) {
-                // Update quantity if found
                 cart[existingItemIndex].quantity += quantity;
             } else {
-                // Add new variant block if it's completely new combination
                 cart.push({
-                    id: productDetails.id,
-                    name: productDetails.name,
-                    price: productDetails.price,
-                    image: productDetails.image,
+                    id: selectedProduct.id,
+                    name: selectedProduct.name,
+                    price: selectedProduct.price,
+                    image: selectedProduct.image,
                     size: currentSize,
                     color: currentColor,
                     quantity: quantity
                 });
             }
 
-            // Save updated cart back to localStorage
             localStorage.setItem('cart', JSON.stringify(cart));
-            
-            // Visual feedback
             updateHeaderCount();
-            const badge = document.getElementById("bag-count");
-            badge.classList.add("scale-125");
-            setTimeout(() => badge.classList.remove("scale-125"), 200);
-
-            alert(`✅ ${quantity} item${quantity > 1 ? 's' : ''} added to cart successfully!`);
             
-            // Reset local quantity counter view state back to 1
-            quantity = 1;
-            document.getElementById('quantity').textContent = 1;
+            alert(`Added ${quantity}x ${selectedProduct.name} (${currentSize} / ${currentColor}) to your bag!`);
         }
 
-        // Initialize view header count on page load
+        // Initialize script logic executions
+        renderPageData();
         updateHeaderCount();
     </script>
 </body>
