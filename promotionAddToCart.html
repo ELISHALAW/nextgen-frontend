@@ -10,50 +10,37 @@
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800;900&display=swap');
         body { font-family: 'Plus Jakarta Sans', sans-serif; }
         
-        .option-btn {
-            transition: all 0.2s ease;
-        }
+        .option-btn { transition: all 0.2s ease; }
         .option-btn.active {
-            background-color: #ef4444; /* Red for promo active state */
+            background-color: #ef4444;
             color: white;
             border-color: #ef4444;
         }
-
-        .product-image-container {
-            aspect-ratio: 4 / 4.5;
-        }
-
-        /* Subtle pulse for the promo text */
+        .product-image-container { aspect-ratio: 4 / 4.5; }
         @keyframes subtlePulse {
             0%, 100% { opacity: 1; }
             50% { opacity: 0.8; }
         }
-        .animate-pulse-slow {
-            animation: subtlePulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-        }
+        .animate-pulse-slow { animation: subtlePulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
     </style>
 </head>
 <body class="bg-gray-100 text-gray-900 min-h-screen flex flex-col">
 
-    <!-- Promo Announcement Bar -->
     <div class="bg-red-600 text-white text-center py-2 px-4 text-sm font-bold tracking-widest uppercase animate-pulse-slow">
         🔥 Flash Sale: 50% Off Selected T-Shirts & Apparel - Limited Time Only!
     </div>
 
-    <!-- Header -->
     <header class="bg-[#1A1A1A] shadow-lg sticky top-0 z-40 py-4 md:py-5">
         <nav class="max-w-7xl mx-auto px-4 md:px-6 flex justify-between items-center">
-            <a href="index.html" class="flex items-center gap-3">
+            <a href="#" class="flex items-center gap-3">
                 <span class="text-white font-extrabold text-xl tracking-wider">NEXTGEN STUDIO</span>
             </a>
-            
             <div class="flex items-center gap-6 md:gap-8">
-                <a href="index.html" class="text-gray-300 hover:text-white transition-colors font-semibold text-sm tracking-widest flex items-center gap-2">
+                <a href="#" class="text-gray-300 hover:text-white transition-colors font-semibold text-sm tracking-widest flex items-center gap-2">
                     <i class="fa-solid fa-arrow-left text-xs"></i> 
                     <span class="hidden sm:inline">BACK</span>
                 </a>
-                
-                <a href="bag.html" class="relative flex items-center gap-2 text-white hover:text-red-500 transition-colors font-medium group">
+                <a href="#" class="relative flex items-center gap-2 text-white hover:text-red-500 transition-colors font-medium group">
                     <i class="fa-solid fa-bag-shopping text-2xl"></i>
                     <span class="hidden md:inline">Bag</span>
                     <span id="bag-count" class="absolute -top-2 -right-2 bg-red-600 text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full border-2 border-[#1A1A1A] hidden">0</span>
@@ -62,104 +49,52 @@
         </nav>
     </header>
 
-    <!-- Main Content -->
     <main class="flex-1 w-full px-4 md:px-6 py-8">
         <div class="max-w-6xl mx-auto">
-            
             <div class="bg-white rounded-3xl shadow-xl border-4 border-red-50 overflow-hidden relative">
-                
                 <div class="flex flex-col lg:flex-row gap-8 lg:gap-12">
                     
-                    <!-- Image Showcase -->
                     <div class="lg:w-[500px] flex-shrink-0 relative">
-                        <!-- Discount Badge Overlay -->
                         <div class="absolute top-6 left-6 z-10 bg-red-600 text-white px-5 py-2 rounded-full font-black text-sm md:text-base tracking-widest shadow-lg transform -rotate-2">
                             -50% OFF
                         </div>
-
                         <div class="product-image-container w-full bg-gray-50 overflow-hidden">
-                            <img id="product-img" src="" alt="Promo T-Shirt" class="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-700">
+                            <img src="https://images.unsplash.com/photo-1576566588028-4147f3842f27?q=80&w=600" alt="Premium T-Shirt" class="w-full h-full object-cover object-center">
                         </div>
                     </div>
                     
-                    <!-- Details & Configuration -->
                     <div class="flex-1 px-6 pb-10 lg:p-10 lg:pl-0 flex flex-col justify-center">
-                        
-                        <!-- Urgency Timer -->
                         <div class="mb-6 inline-flex items-center gap-3 bg-red-50 border border-red-100 px-4 py-2 rounded-lg text-red-600 font-bold text-sm w-max">
                             <i class="fa-solid fa-clock animate-pulse"></i>
                             Offer ends in: <span id="countdown" class="font-black font-mono text-base">02:15:30</span>
                         </div>
 
                         <div class="flex flex-col gap-2">
-                            <h3 id="product-brand" class="font-extrabold text-2xl md:text-3xl uppercase tracking-tighter text-red-600">EXCLUSIVE</h3>
-                            <h4 id="product-title" class="font-black text-4xl md:text-5xl lg:text-6xl uppercase tracking-tight text-gray-900 leading-none">PROMO T-SHIRT</h4>
+                            <h3 class="font-extrabold text-2xl md:text-3xl uppercase tracking-tighter text-red-600">PREMIUM</h3>
+                            <h4 class="font-black text-4xl md:text-5xl lg:text-6xl uppercase tracking-tight text-gray-900 leading-none">HEAVYWEIGHT TEE</h4>
                         </div>
                         
-                        <!-- Pricing (Crossed out original price) -->
                         <div class="mt-4 flex items-end gap-4">
-                            <p id="product-price" class="font-black text-5xl md:text-6xl text-gray-900">$0.00</p>
-                            <p id="original-price" class="font-bold text-2xl md:text-3xl text-gray-400 line-through mb-1">$0.00</p>
+                            <p class="font-black text-5xl md:text-6xl text-gray-900">$35.00</p>
+                            <p class="font-bold text-2xl md:text-3xl text-gray-400 line-through mb-1">$70.00</p>
                         </div>
 
-                        <!-- Size Variations (Specific to Apparel) -->
                         <div class="mt-8">
-                            <div class="flex justify-between items-end mb-3">
-                                <p class="text-sm font-bold text-gray-500 uppercase tracking-widest">Select Size</p>
-                                <a href="#" class="text-xs text-gray-400 underline hover:text-gray-800">Size Guide</a>
-                            </div>
+                            <p class="text-sm font-bold text-gray-500 uppercase tracking-widest mb-3">Select Size</p>
                             <div class="flex flex-wrap gap-3">
                                 <button onclick="selectSize(this)" class="option-btn px-6 py-3 border-2 border-gray-200 rounded-xl text-base font-bold min-w-[60px]">S</button>
                                 <button onclick="selectSize(this)" class="option-btn active px-6 py-3 border-2 border-gray-200 rounded-xl text-base font-bold min-w-[60px]">M</button>
                                 <button onclick="selectSize(this)" class="option-btn px-6 py-3 border-2 border-gray-200 rounded-xl text-base font-bold min-w-[60px]">L</button>
-                                <button onclick="selectSize(this)" class="option-btn px-6 py-3 border-2 border-gray-200 rounded-xl text-base font-bold min-w-[60px]">XL</button>
                             </div>
                         </div>
 
-                        <!-- Color Variations -->
-                        <div class="mt-8">
-                            <p class="text-sm font-bold text-gray-500 uppercase tracking-widest mb-3">Select Color</p>
-                            <div class="flex flex-wrap gap-3">
-                                <button onclick="selectColor(this)" class="option-btn active px-6 py-3 border-2 border-gray-200 rounded-xl text-base font-bold">Vintage Black</button>
-                                <button onclick="selectColor(this)" class="option-btn px-6 py-3 border-2 border-gray-200 rounded-xl text-base font-bold">Washed White</button>
-                                <button onclick="selectColor(this)" class="option-btn px-6 py-3 border-2 border-gray-200 rounded-xl text-base font-bold">Crimson</button>
-                            </div>
-                        </div>
-
-                        <!-- Info Readout String Status -->
                         <p id="selection" class="text-gray-500 mt-6 text-sm font-medium bg-gray-50 p-3 rounded-lg border border-gray-100">
-                            Selected: Size <span class="text-gray-900 font-bold">M</span> in <span class="text-gray-900 font-bold">Vintage Black</span>
+                            Selected: Size <span class="text-gray-900 font-bold">M</span>
                         </p>
 
-                        <!-- Counter & Stock -->
-                        <div class="mt-8 pt-6 border-t border-gray-100 flex flex-col sm:flex-row justify-between items-end sm:items-center gap-6">
-                            <div>
-                                <label class="block text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">Quantity</label>
-                                <div class="flex items-center border-2 border-gray-200 rounded-xl bg-white overflow-hidden">
-                                    <button onclick="changeQuantity(this)" class="px-5 py-2.5 hover:bg-gray-50 transition-colors text-gray-600 font-bold text-xl leading-none">-</button>
-                                    <span id="quantity" class="px-6 py-2.5 font-black text-gray-900 bg-gray-50 border-x-2 border-gray-200 text-lg">1</span>
-                                    <button onclick="changeQuantity(this)" class="px-5 py-2.5 hover:bg-gray-50 transition-colors text-gray-600 font-bold text-xl leading-none">+</button>
-                                </div>
-                            </div>
-
-                            <div class="text-right">
-                                <span class="text-red-600 font-bold text-sm block mb-1">🔥 High Demand</span>
-                                <span class="text-xs font-semibold text-gray-500 uppercase tracking-wider">Only 7 left in stock</span>
-                            </div>
-                        </div>
-
-                        <!-- Action Execution Dispatch Anchor -->
-                        <button onclick="addToCart()" 
-                                class="mt-8 w-full bg-red-600 hover:bg-red-700 text-white font-black text-lg py-5 rounded-2xl transition-all active:scale-[0.97] flex items-center justify-center gap-3 shadow-[0_8px_20px_rgba(220,38,38,0.3)]">
+                        <button onclick="addToCart()" class="mt-8 w-full bg-red-600 hover:bg-red-700 text-white font-black text-lg py-5 rounded-2xl transition-all active:scale-[0.97] flex items-center justify-center gap-3 shadow-[0_8px_20px_rgba(220,38,38,0.3)]">
                             <i class="fa-solid fa-bolt"></i> CLAIM DEAL & ADD TO BAG
                         </button>
-
-                        <!-- Trust Badges -->
-                        <div class="mt-6 flex justify-center gap-6 text-gray-400 text-xl">
-                            <i class="fa-brands fa-cc-visa hover:text-gray-600 transition-colors"></i>
-                            <i class="fa-brands fa-cc-mastercard hover:text-gray-600 transition-colors"></i>
-                            <i class="fa-brands fa-cc-apple-pay hover:text-gray-600 transition-colors"></i>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -167,163 +102,37 @@
     </main>
 
     <script>
-        // Use an exclusive fallback product if none was clicked
-        const fallbackPromoItem = {
-            id: "promo-heavyweight-tee",
-            name: "Premium Heavyweight Tee",
-            price: 35.00,
-            image: "https://images.unsplash.com/photo-1576566588028-4147f3842f27?q=80&w=600"
-        };
-
-        // Read configuration details passed via the clicked layout target
-        const selectedProduct = JSON.parse(localStorage.getItem('selectedProduct')) || fallbackPromoItem;
-
         let currentSize = 'M';
-        let currentColor = 'Vintage Black';
-        let quantity = 1;
+        let cartCount = 0;
 
-        // Dynamic rendering execution
-        function renderPageData() {
-            document.getElementById('product-img').src = selectedProduct.image;
-            document.getElementById('product-img').alt = selectedProduct.name;
-            
-            // Assume the price stored is the SALE price. Let's calculate a fake original price (Double the sale price for "50% off")
-            const salePrice = selectedProduct.price;
-            const originalPrice = salePrice * 2;
-            
-            document.getElementById('product-price').textContent = `$${salePrice.toFixed(2)}`;
-            document.getElementById('original-price').textContent = `$${originalPrice.toFixed(2)}`;
-            
-            // Clean title string spacing layout
-            const nameParts = selectedProduct.name.split(' ');
-            if (nameParts.length > 1) {
-                document.getElementById('product-brand').textContent = nameParts[0];
-                document.getElementById('product-title').textContent = nameParts.slice(1).join(' ');
-            } else {
-                document.getElementById('product-brand').textContent = "PROMO";
-                document.getElementById('product-title').textContent = selectedProduct.name;
-            }
-        }
-
-        // Selection Handlers
         function selectSize(btn) {
-            document.querySelectorAll('.option-btn').forEach(b => {
-                if (['S','M','L','XL'].includes(b.textContent)) b.classList.remove('active');
-            });
+            document.querySelectorAll('.option-btn').forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
             currentSize = btn.textContent;
-            updateSelection();
+            document.getElementById('selection').innerHTML = `Selected: Size <span class="text-gray-900 font-bold">${currentSize}</span>`;
         }
 
-        function selectColor(btn) {
-            document.querySelectorAll('.option-btn').forEach(b => {
-                if (['Vintage Black','Washed White','Crimson'].includes(b.textContent)) b.classList.remove('active');
-            });
-            btn.classList.add('active');
-            currentColor = btn.textContent;
-            updateSelection();
-        }
-
-        function updateSelection() {
-            document.getElementById('selection').innerHTML = `
-                Selected: Size <span class="text-gray-900 font-bold">${currentSize}</span> in <span class="text-gray-900 font-bold">${currentColor}</span>
-            `;
-        }
-
-        function changeQuantity(btn) {
-            if (btn.textContent === '+') {
-                quantity++;
-            } else if (quantity > 1) {
-                quantity--;
-            }
-            document.getElementById('quantity').textContent = quantity;
-        }
-
-        function updateHeaderCount() {
-            let cart = JSON.parse(localStorage.getItem('cart')) || [];
-            let totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-            const badge = document.getElementById("bag-count");
-            
-            if(totalItems > 0) {
-                badge.textContent = totalItems;
-                badge.classList.remove("hidden");
-            } else {
-                badge.classList.add("hidden");
-            }
-        }
-
-        // Add to Cart Logic
         function addToCart() {
-            let cart = JSON.parse(localStorage.getItem('cart')) || [];
-
-            // Add a "promo" flag to the ID so it doesn't accidentally group with full-price versions of the same item
-            const cartItemId = `${selectedProduct.id}-PROMO`;
-
-            let existingItemIndex = cart.findIndex(item => 
-                item.id === cartItemId && 
-                item.size === currentSize && 
-                item.color === currentColor
-            );
-
-            if (existingItemIndex > -1) {
-                cart[existingItemIndex].quantity += quantity;
-            } else {
-                cart.push({
-                    id: cartItemId,
-                    name: `${selectedProduct.name} (PROMO)`,
-                    price: selectedProduct.price, // Storing the sale price
-                    image: selectedProduct.image,
-                    size: currentSize,
-                    color: currentColor,
-                    quantity: quantity
-                });
-            }
-
-            localStorage.setItem('cart', JSON.stringify(cart));
-            updateHeaderCount();
+            cartCount++;
+            const badge = document.getElementById("bag-count");
+            badge.textContent = cartCount;
+            badge.classList.remove("hidden");
             
-            // Visual feedback
             const btn = document.querySelector('button[onclick="addToCart()"]');
-            const originalText = btn.innerHTML;
             btn.innerHTML = `<i class="fa-solid fa-check"></i> ADDED TO BAG!`;
-            btn.classList.replace('bg-red-600', 'bg-green-600');
-            btn.classList.replace('hover:bg-red-700', 'hover:bg-green-700');
-            
-            setTimeout(() => {
-                btn.innerHTML = originalText;
-                btn.classList.replace('bg-green-600', 'bg-red-600');
-                btn.classList.replace('hover:bg-green-700', 'hover:bg-red-700');
-            }, 2000);
+            setTimeout(() => { btn.innerHTML = `<i class="fa-solid fa-bolt"></i> CLAIM DEAL & ADD TO BAG`; }, 2000);
         }
 
-        // Simple Countdown Timer Script
-        function startTimer(durationInSeconds) {
-            let timer = durationInSeconds;
+        function startTimer(duration) {
+            let timer = duration;
             const display = document.getElementById('countdown');
-            
-            setInterval(function () {
-                let hours = parseInt(timer / 3600, 10);
-                let minutes = parseInt((timer % 3600) / 60, 10);
-                let seconds = parseInt(timer % 60, 10);
-
-                hours = hours < 10 ? "0" + hours : hours;
-                minutes = minutes < 10 ? "0" + minutes : minutes;
-                seconds = seconds < 10 ? "0" + seconds : seconds;
-
-                display.textContent = hours + ":" + minutes + ":" + seconds;
-
-                if (--timer < 0) {
-                    timer = 0;
-                }
+            setInterval(() => {
+                let h = Math.floor(timer / 3600), m = Math.floor((timer % 3600) / 60), s = timer % 60;
+                display.textContent = `${h.toString().padStart(2, '0')}:${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
+                if (--timer < 0) timer = 0;
             }, 1000);
         }
-
-        // Initialize script logic executions
-        renderPageData();
-        updateHeaderCount();
-        
-        // Start fake timer for 2 hours, 15 mins, 30 secs
-        startTimer((2 * 3600) + (15 * 60) + 30);
+        startTimer(8130);
     </script>
 </body>
 </html>
