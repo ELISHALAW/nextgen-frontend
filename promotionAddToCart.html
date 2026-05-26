@@ -1,122 +1,214 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" class="scroll-smooth">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Promo Offer | Premium Fashion Store</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800;900&display=swap');
-        body { font-family: 'Plus Jakarta Sans', sans-serif; }
-        .option-btn { transition: all 0.2s ease; }
-        .option-btn.active { background-color: #ef4444; color: white; border-color: #ef4444; }
-        .product-image-container { aspect-ratio: 4 / 4.5; }
+      @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800;900&display=swap");
+      body {
+        font-family: "Plus Jakarta Sans", sans-serif;
+      }
+      .option-btn {
+        transition: all 0.2s ease;
+      }
+      .option-btn.active {
+        background-color: #ef4444;
+        color: white;
+        border-color: #ef4444;
+      }
+      .product-image-container {
+        aspect-ratio: 4 / 4.5;
+      }
     </style>
-</head>
-<body class="bg-gray-100 text-gray-900 min-h-screen flex flex-col">
-
+  </head>
+  <body class="bg-gray-100 text-gray-900 min-h-screen flex flex-col">
     <header class="bg-[#1A1A1A] shadow-lg sticky top-0 z-50 py-4">
-        <nav class="max-w-7xl mx-auto px-6 flex justify-between items-center">
-            <span class="text-white font-extrabold text-xl tracking-wider">NEXTGEN STUDIO</span>
-            <button onclick="toggleCart()" class="relative flex items-center gap-2 text-white hover:text-red-500 transition-colors">
-                <i class="fa-solid fa-bag-shopping text-2xl"></i>
-                <span id="bag-count" class="absolute -top-2 -right-2 bg-red-600 text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full border-2 border-[#1A1A1A] hidden">0</span>
-            </button>
-        </nav>
+      <nav class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+        <a href="./index.html" class="flex items-center gap-3 group">
+          <img
+            id="nav-logo"
+            src="images/white.png"
+            class="h-14 w-auto object-contain transition-transform duration-500 group-hover:scale-105"
+            alt="logo"
+          />
+        </a>
+        <button
+          onclick="toggleCart()"
+          class="relative flex items-center gap-2 text-white hover:text-red-500 transition-colors"
+        >
+          <i class="fa-solid fa-bag-shopping text-2xl"></i>
+          <span
+            id="bag-count"
+            class="absolute -top-2 -right-2 bg-red-600 text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full border-2 border-[#1A1A1A] hidden"
+            >0</span
+          >
+        </button>
+      </nav>
     </header>
 
     <main class="flex-1 w-full px-4 md:px-6 py-8">
-        <div class="max-w-6xl mx-auto">
-            <div class="bg-white rounded-3xl shadow-xl border-4 border-red-50 overflow-hidden">
-                <div class="flex flex-col lg:flex-row gap-8 lg:gap-12">
-                    <div class="lg:w-[500px] flex-shrink-0 relative">
-                        <div class="absolute top-6 left-6 z-10 bg-red-600 text-white px-5 py-2 rounded-full font-black text-sm tracking-widest shadow-lg -rotate-2">-50% OFF</div>
-                        <div class="product-image-container w-full bg-gray-50 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1576566588028-4147f3842f27?q=80&w=600" class="w-full h-full object-cover">
-                        </div>
-                    </div>
-                    <div class="flex-1 px-6 pb-10 lg:p-10 lg:pl-0 flex flex-col justify-center">
-                        <h4 class="font-black text-5xl lg:text-6xl tracking-tight leading-none">HEAVYWEIGHT TEE</h4>
-                        <div class="mt-4 flex items-end gap-4">
-                            <p class="font-black text-5xl">$35.00</p>
-                            <p class="font-bold text-3xl text-gray-400 line-through">$70.00</p>
-                        </div>
-                        <div class="mt-8">
-                            <p class="text-sm font-bold text-gray-500 uppercase mb-3">Select Size</p>
-                            <div class="flex gap-3">
-                                <button onclick="selectSize(this)" class="option-btn px-6 py-3 border-2 border-gray-200 rounded-xl font-bold">S</button>
-                                <button onclick="selectSize(this)" class="option-btn active px-6 py-3 border-2 border-gray-200 rounded-xl font-bold">M</button>
-                                <button onclick="selectSize(this)" class="option-btn px-6 py-3 border-2 border-gray-200 rounded-xl font-bold">L</button>
-                            </div>
-                        </div>
-                        <button onclick="addToCart()" class="mt-8 w-full bg-red-600 hover:bg-red-700 text-white font-black text-lg py-5 rounded-2xl transition-all">
-                            CLAIM DEAL & ADD TO BAG
-                        </button>
-                    </div>
-                </div>
+      <div class="max-w-6xl mx-auto">
+        <div
+          class="bg-white rounded-3xl shadow-xl border-4 border-red-50 overflow-hidden"
+        >
+          <div class="flex flex-col lg:flex-row gap-8 lg:gap-12">
+            <div class="lg:w-[500px] flex-shrink-0 relative">
+              <div
+                class="absolute top-6 left-6 z-10 bg-red-600 text-white px-5 py-2 rounded-full font-black text-sm tracking-widest shadow-lg -rotate-2"
+              >
+                -50% OFF
+              </div>
+              <div
+                class="product-image-container w-full bg-gray-50 overflow-hidden"
+              >
+                <img
+                  src="https://images.unsplash.com/photo-1576566588028-4147f3842f27?q=80&w=600"
+                  class="w-full h-full object-cover"
+                />
+              </div>
             </div>
+            <div
+              class="flex-1 px-6 pb-10 lg:p-10 lg:pl-0 flex flex-col justify-center"
+            >
+              <h4
+                class="font-black text-5xl lg:text-6xl tracking-tight leading-none"
+              >
+                HEAVYWEIGHT TEE
+              </h4>
+              <div class="mt-4 flex items-end gap-4">
+                <p class="font-black text-5xl">$35.00</p>
+                <p class="font-bold text-3xl text-gray-400 line-through">
+                  $70.00
+                </p>
+              </div>
+              <div class="mt-8">
+                <p class="text-sm font-bold text-gray-500 uppercase mb-3">
+                  Select Size
+                </p>
+                <div class="flex gap-3">
+                  <button
+                    onclick="selectSize(this)"
+                    class="option-btn px-6 py-3 border-2 border-gray-200 rounded-xl font-bold"
+                  >
+                    S
+                  </button>
+                  <button
+                    onclick="selectSize(this)"
+                    class="option-btn active px-6 py-3 border-2 border-gray-200 rounded-xl font-bold"
+                  >
+                    M
+                  </button>
+                  <button
+                    onclick="selectSize(this)"
+                    class="option-btn px-6 py-3 border-2 border-gray-200 rounded-xl font-bold"
+                  >
+                    L
+                  </button>
+                </div>
+              </div>
+              <button
+                onclick="addToCart()"
+                class="mt-8 w-full bg-red-600 hover:bg-red-700 text-white font-black text-lg py-5 rounded-2xl transition-all"
+              >
+                CLAIM DEAL & ADD TO BAG
+              </button>
+            </div>
+          </div>
         </div>
+      </div>
     </main>
 
-    <div id="cart-modal" class="hidden fixed inset-0 bg-black/70 z-[100] flex items-end lg:items-center justify-center">
-        <div class="bg-white w-full max-w-lg lg:rounded-3xl rounded-t-3xl max-h-[90vh] flex flex-col">
-            <div class="p-6 border-b flex justify-between items-center">
-                <h2 class="text-2xl font-bold">Your Bag</h2>
-                <button onclick="toggleCart()" class="text-3xl">&times;</button>
-            </div>
-            <div id="cart-items" class="flex-1 p-6 overflow-auto"></div>
-            
-            <form action="https://api.web3forms.com/submit" method="POST" class="p-6 border-t">
-                <input type="hidden" name="access_key" value="674464f9-68b4-447e-908d-8e3f58cb2ee6">
-                <input type="hidden" name="subject" value="New Order Received!">
-                <input type="hidden" name="from_name" value="Fashion Store">
-                <textarea name="order_details" id="order_details_field" class="hidden"></textarea>
-                
-                <div class="flex justify-between text-lg mb-4">
-                    <span class="font-medium">Total</span>
-                    <span id="cart-total" class="font-black">$0.00</span>
-                </div>
-                <button type="submit" class="w-full bg-black text-white py-5 rounded-2xl font-bold text-lg">PROCEED TO CHECKOUT</button>
-            </form>
+    <div
+      id="cart-modal"
+      class="hidden fixed inset-0 bg-black/70 z-[100] flex items-end lg:items-center justify-center"
+    >
+      <div
+        class="bg-white w-full max-w-lg lg:rounded-3xl rounded-t-3xl max-h-[90vh] flex flex-col"
+      >
+        <div class="p-6 border-b flex justify-between items-center">
+          <h2 class="text-2xl font-bold">Your Bag</h2>
+          <button onclick="toggleCart()" class="text-3xl">&times;</button>
         </div>
+        <div id="cart-items" class="flex-1 p-6 overflow-auto"></div>
+
+        <form
+          action="https://api.web3forms.com/submit"
+          method="POST"
+          class="p-6 border-t"
+        >
+          <input
+            type="hidden"
+            name="access_key"
+            value="674464f9-68b4-447e-908d-8e3f58cb2ee6"
+          />
+          <input type="hidden" name="subject" value="New Order Received!" />
+          <input type="hidden" name="from_name" value="Fashion Store" />
+          <textarea
+            name="order_details"
+            id="order_details_field"
+            class="hidden"
+          ></textarea>
+
+          <div class="flex justify-between text-lg mb-4">
+            <span class="font-medium">Total</span>
+            <span id="cart-total" class="font-black">$0.00</span>
+          </div>
+          <button
+            type="submit"
+            class="w-full bg-black text-white py-5 rounded-2xl font-bold text-lg"
+          >
+            PROCEED TO CHECKOUT
+          </button>
+        </form>
+      </div>
     </div>
 
     <script>
-        let currentSize = 'M';
-        let cart = [];
+      let currentSize = "M";
+      let cart = [];
 
-        function selectSize(btn) {
-            document.querySelectorAll('.option-btn').forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            currentSize = btn.textContent;
-        }
+      function selectSize(btn) {
+        document
+          .querySelectorAll(".option-btn")
+          .forEach((b) => b.classList.remove("active"));
+        btn.classList.add("active");
+        currentSize = btn.textContent;
+      }
 
-        function addToCart() {
-            cart.push({ name: "Heavyweight Tee", price: 35, size: currentSize });
-            updateCartUI();
-            alert("Added to bag!");
-        }
+      function addToCart() {
+        cart.push({ name: "Heavyweight Tee", price: 35, size: currentSize });
+        updateCartUI();
+        alert("Added to bag!");
+      }
 
-        function updateCartUI() {
-            document.getElementById('bag-count').textContent = cart.length;
-            document.getElementById('bag-count').classList.remove('hidden');
-            const container = document.getElementById('cart-items');
-            container.innerHTML = '';
-            let total = 0;
-            let orderSummary = "";
+      function updateCartUI() {
+        document.getElementById("bag-count").textContent = cart.length;
+        document.getElementById("bag-count").classList.remove("hidden");
+        const container = document.getElementById("cart-items");
+        container.innerHTML = "";
+        let total = 0;
+        let orderSummary = "";
 
-            cart.forEach((item, index) => {
-                total += item.price;
-                orderSummary += `${item.name} (Size: ${item.size}) | `;
-                container.innerHTML += `<div class="flex justify-between mb-4"><p>${item.name} (${item.size})</p><p>$${item.price}</p></div>`;
-            });
+        cart.forEach((item, index) => {
+          total += item.price;
+          orderSummary += `${item.name} (Size: ${item.size}) | `;
+          container.innerHTML += `<div class="flex justify-between mb-4"><p>${item.name} (${item.size})</p><p>$${item.price}</p></div>`;
+        });
 
-            document.getElementById('cart-total').textContent = `$${total}.00`;
-            document.getElementById('order_details_field').value = orderSummary + " Total: $" + total;
-        }
+        document.getElementById("cart-total").textContent = `$${total}.00`;
+        document.getElementById("order_details_field").value =
+          orderSummary + " Total: $" + total;
+      }
 
-        function toggleCart() { document.getElementById('cart-modal').classList.toggle('hidden'); }
+      function toggleCart() {
+        document.getElementById("cart-modal").classList.toggle("hidden");
+      }
     </script>
-</body>
+  </body>
 </html>
