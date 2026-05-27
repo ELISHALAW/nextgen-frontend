@@ -191,7 +191,7 @@
               <div class="flex justify-between items-center text-neutral-600">
                 <span id="subtotal-label">Subtotal (0 items)</span>
                 <span id="subtotal-price" class="font-semibold text-neutral-900"
-                  >$0.00</span
+                  >RM 0.00</span
                 >
               </div>
               <div class="flex justify-between items-center text-neutral-600">
@@ -210,7 +210,7 @@
                 <span
                   id="total-price"
                   class="text-xl font-black text-neutral-900"
-                  >$0.00</span
+                  >RM 0.00</span
                 >
               </div>
             </div>
@@ -303,7 +303,7 @@
                     <span class="w-10 text-center font-bold text-neutral-800 text-sm">${item.quantity}</span>
                     <button onclick="updateQuantity(${index}, 1)" class="w-8 h-8 flex items-center justify-center font-bold hover:bg-white rounded-lg transition-colors text-neutral-500 active:scale-95 text-sm">+</button>
                   </div>
-                  <p class="font-extrabold text-neutral-900 text-lg">$${itemTotalCost.toFixed(2)}</p>
+                  <p class="font-extrabold text-neutral-900 text-lg">RM${itemTotalCost.toFixed(2)}</p>
                 </div>
               </div>
             </div>
@@ -336,9 +336,9 @@
         document.getElementById("subtotal-label").textContent =
           `Subtotal (${count} item${count !== 1 ? "s" : ""})`;
         document.getElementById("subtotal-price").textContent =
-          `$${subtotal.toFixed(2)}`;
+          `RM ${subtotal.toFixed(2)}`;
         document.getElementById("total-price").textContent =
-          `$${subtotal.toFixed(2)}`;
+          `RM ${subtotal.toFixed(2)}`;
       }
 
       // ====================== CHECKOUT ======================
@@ -379,7 +379,7 @@
           Phone: customer.phone,
           "Shipping Address": `${customer.address}, ${customer.city} ${customer.postalCode}, ${customer.country}`,
           "Order Total Items": globalTotalCount,
-          "Order Total Price": `$${globalSubtotalPrice.toFixed(2)}`,
+          "Order Total Price": `RM${globalSubtotalPrice.toFixed(2)}`,
           "Items List Details": `\n${itemsBreakdownText}`,
           _template: "table",
         };
