@@ -313,6 +313,12 @@
         alert("Added to bag!");
       }
 
+      function removeFromCart(index) {
+        // Remove item from state array cleanly
+        cart.splice(index, 1);
+        updateCartUI();
+      }
+
       function updateCartUI() {
         // Handle badge configuration count parameters
         const bagCount = document.getElementById("bag-count");
@@ -328,7 +334,7 @@
         let total = 0;
         let orderSummary = "";
 
-        // Build product array loop item rows structural elements
+        // Build product list rows with inline individual removal interactions
         cart.forEach((item, index) => {
           total += item.price;
           orderSummary += `${index + 1}. ${item.name} (Size: ${item.size}) - $${item.price}.00\n`;
@@ -339,12 +345,22 @@
                 <p class="font-bold text-sm text-gray-800">${item.name}</p>
                 <p class="text-xs text-gray-400 font-semibold mt-0.5">Size: ${item.size}</p>
               </div>
-              <p class="font-extrabold text-sm text-gray-900">$${item.price}.00</p>
+              <div class="flex items-center gap-4">
+                <p class="font-extrabold text-sm text-gray-900">$${item.price}.00</p>
+                <button 
+                  type="button" 
+                  onclick="removeFromCart(${index})" 
+                  class="text-gray-300 hover:text-red-500 p-1.5 transition-colors group flex items-center justify-center"
+                  title="Remove item"
+                >
+                  <i class="fa-solid fa-trash-can text-sm pointer-events-none"></i>
+                </button>
+              </div>
             </div>
           `;
         });
 
-        // Save totals structural values to form field endpoints
+        // Save totals structural values to hidden form field endpoints
         document.getElementById("cart-total").textContent = `$${total}.00`;
         document.getElementById("order_details_field").value =
           `Items Breakdown:\n${orderSummary}\nTotal Final Billing Price Amount: $${total}.00`;
@@ -352,7 +368,7 @@
         // Manage click activity configuration parameters based on cart size lengths
         const submitBtn = document.getElementById("checkout-submit-btn");
         if (cart.length === 0) {
-          container.innerHTML = `<p class="text-gray-400 text-sm text-center py-4">Your shopping bag is completely empty.</p>`;
+          container.innerHTML = `<p class="text-gray-400 text-sm text-center py-6">Your shopping bag is completely empty.</p>`;
           submitBtn.disabled = true;
           submitBtn.classList.add("opacity-50", "cursor-not-allowed");
         } else {
@@ -365,7 +381,7 @@
         document.getElementById("cart-modal").classList.toggle("hidden");
       }
 
-      // Initialize runtime default view profiles on application mount
+      // Initialize runtime default views on application mount
       updateCartUI();
     </script>
   </body>
