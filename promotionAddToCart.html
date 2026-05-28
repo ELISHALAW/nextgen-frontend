@@ -175,6 +175,37 @@
                 <span class="text-red-600 font-semibold">Red</span>
               </p>
 
+              <div class="mt-6">
+                <p
+                  class="text-xs font-bold text-slate-500 uppercase tracking-wider mb-2.5"
+                >
+                  Quantity
+                </p>
+                <div
+                  class="flex items-center w-32 border border-slate-200 rounded-xl overflow-hidden bg-white"
+                >
+                  <button
+                    type="button"
+                    onclick="changeQty(-1)"
+                    class="px-4 py-3 hover:bg-slate-100"
+                  >
+                    -
+                  </button>
+                  <span
+                    id="qty-display"
+                    class="flex-1 text-center font-bold text-sm"
+                    >1</span
+                  >
+                  <button
+                    type="button"
+                    onclick="changeQty(1)"
+                    class="px-4 py-3 hover:bg-slate-100"
+                  >
+                    +
+                  </button>
+                </div>
+              </div>
+
               <button
                 onclick="addToCart()"
                 class="mt-6 w-full bg-red-600 hover:bg-red-700 text-white font-semibold text-base py-4 rounded-xl transition-all active:scale-[0.99] shadow-sm shadow-red-950/10 flex items-center justify-center gap-2"
@@ -368,6 +399,7 @@
     <script>
       let currentSize = "M";
       let currentColor = "Red";
+      let qty = 1;
       let cart = [];
 
       const activeClasses = [
@@ -417,13 +449,34 @@
         }
       }
 
+      function changeQty(delta) {
+        qty = Math.max(1, qty + delta);
+        document.getElementById("qty-display").textContent = qty;
+      }
+
       function addToCart() {
-        cart.push({
-          name: "Oversized Essential Tee",
-          price: 35,
-          size: currentSize,
-          color: currentColor,
-        });
+        const existingItemIndex = cart.findIndex(
+          (item) =>
+            item.name === "Oversized Essential Tee" &&
+            item.size === currentSize &&
+            item.color === currentColor,
+        );
+
+        if (existingItemIndex > -1) {
+          cart[existingItemIndex].qty += qty;
+        } else {
+          cart.push({
+            name: "Oversized Essential Tee",
+            price: 35,
+            size: currentSize,
+            color: currentColor,
+            qty: qty,
+          });
+        }
+
+        qty = 1;
+        document.getElementById("qty-display").textContent = qty;
+
         updateCartUI();
       }
 
@@ -434,17 +487,24 @@
 
       function updateCartUI() {
         const bagCount = document.getElementById("bag-count");
-        bagCount.textContent = cart.length;
-        if (cart.length > 0) {
+        const container = document.getElementById("cart-items");
+
+        let total = 0;
+        let totalQty = 0;
+        let orderSummary = "";
+
+        cart.forEach((item) => {
+          totalQty += item.qty;
+        });
+
+        bagCount.textContent = totalQty;
+        if (totalQty > 0) {
           bagCount.classList.remove("hidden");
         } else {
           bagCount.classList.add("hidden");
         }
 
-        const container = document.getElementById("cart-items");
         container.innerHTML = "";
-        let total = 0;
-        let orderSummary = "";
 
         if (cart.length === 0) {
           container.innerHTML = `
@@ -455,8 +515,9 @@
           `;
         } else {
           cart.forEach((item, index) => {
-            total += item.price;
-            orderSummary += `${index + 1}. ${item.name} (Size: ${item.size}, Color: ${item.color}) - $${item.price}.00\n`;
+            const itemTotal = item.price * item.qty;
+            total += itemTotal;
+            orderSummary += `${index + 1}. ${item.name} (Size: ${item.size}, Color: ${item.color}, Qty: ${item.qty}) - RM${itemTotal}.00\n`;
 
             container.innerHTML += `
               <div class="flex justify-between items-center py-4 border-b last:border-0 border-slate-100">
@@ -464,11 +525,12 @@
                   <p class="font-semibold text-sm text-slate-800">${item.name}</p>
                   <p class="text-xs text-slate-400 font-medium mt-0.5">
                     Size: <span class="text-slate-600 font-semibold mr-2">${item.size}</span>
-                    Color: <span class="text-slate-600 font-semibold">${item.color}</span>
+                    Color: <span class="text-slate-600 font-semibold mr-2">${item.color}</span>
+                    Qty: <span class="text-slate-600 font-semibold">${item.qty}</span>
                   </p>
                 </div>
                 <div class="flex items-center gap-4">
-                  <p class="font-bold text-sm text-slate-900">RM ${item.price}.00</p>
+                  <p class="font-bold text-sm text-slate-900">RM ${itemTotal}.00</p>
                   <button 
                     type="button" 
                     onclick="removeFromCart(${index})" 
@@ -483,9 +545,9 @@
           });
         }
 
-        document.getElementById("cart-total").textContent = `RM${total}.00`;
+        document.getElementById("cart-total").textContent = `RM ${total}.00`;
         document.getElementById("order_details_field").value =
-          `Items Breakdown:\n${orderSummary}\nTotal Final Billing Price Amount: $${total}.00`;
+          `Items Breakdown:\n${orderSummary}\nTotal Final Billing Price Amount: RM${total}.00`;
 
         const submitBtn = document.getElementById("checkout-submit-btn");
         if (cart.length === 0) {

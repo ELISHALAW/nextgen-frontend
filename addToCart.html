@@ -84,145 +84,180 @@
       </nav>
     </header>
 
-    <main class="flex-1 w-full px-4 md:px-6 py-8 md:py-12">
-      <div class="max-w-6xl mx-auto">
+    <main
+      class="flex-1 w-full px-4 md:px-6 py-8 md:py-16 flex items-center justify-center"
+    >
+      <div class="max-w-5xl w-full mx-auto">
         <div
-          class="bg-white rounded-3xl shadow-sm border border-gray-100 overflow-hidden"
+          class="bg-white rounded-3xl shadow-[0_10px_40px_rgba(0,0,0,0.02)] border border-slate-100 overflow-hidden"
         >
-          <div class="flex flex-col lg:flex-row gap-8 lg:gap-12">
-            <div class="lg:w-[520px] flex-shrink-0 px-4 pt-4 lg:p-0">
+          <div class="grid grid-cols-1 md:grid-cols-12">
+            <div
+              class="md:col-span-6 p-6 lg:p-10 bg-[#FAFAFA] flex items-center justify-center border-b md:border-b-0 md:border-r border-slate-100/80"
+            >
               <div
-                class="product-image-container w-full bg-gray-50 rounded-3xl overflow-hidden shadow-inner h-[520px] lg:h-[653px]"
+                class="w-full max-w-sm aspect-[4/5] rounded-2xl overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.03)] border border-slate-200/50 bg-white group"
               >
                 <img
                   id="product-img"
                   src=""
                   alt="Product Image"
-                  class="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-700"
+                  class="w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-102"
                 />
               </div>
             </div>
 
             <div
-              class="flex-1 px-4 pb-8 lg:p-0 lg:pr-10 flex flex-col justify-center"
+              class="md:col-span-6 p-8 lg:p-12 flex flex-col justify-between"
             >
-              <div class="flex justify-between items-start mt-2 lg:mt-0">
-                <div>
-                  <h3
-                    id="product-brand"
-                    class="font-extrabold text-4xl md:text-5xl lg:text-6xl uppercase tracking-tighter text-gray-900"
-                  >
-                    NEXTGEN
-                  </h3>
-                  <h4
-                    id="product-title"
-                    class="font-extrabold text-2xl md:text-3xl lg:text-4xl uppercase tracking-tight text-gray-500 -mt-1"
-                  >
-                    STREETWEAR ITEM
-                  </h4>
-                </div>
-                <div class="text-right">
+              <div>
+                <div class="flex justify-between items-start gap-4 mb-6">
+                  <div>
+                    <span
+                      id="product-brand"
+                      class="text-[11px] font-bold tracking-[0.2em] text-slate-400 uppercase block mb-1"
+                    >
+                      NEXTGEN
+                    </span>
+                    <h1
+                      id="product-title"
+                      class="font-bold text-2xl lg:text-3xl tracking-tight text-slate-900 uppercase leading-tight"
+                    >
+                      STREETWEAR ITEM
+                    </h1>
+                  </div>
                   <p
                     id="product-price"
-                    class="font-black text-4xl md:text-5xl text-amber-600"
+                    class="font-semibold text-2xl lg:text-3xl text-slate-900 tracking-tight"
                   >
                     $0.00
                   </p>
                 </div>
-              </div>
 
-              <div class="mt-8">
-                <p
-                  class="text-sm font-bold text-gray-500 uppercase tracking-widest mb-3"
-                >
-                  Size
-                </p>
-                <div class="flex gap-3">
-                  <button
-                    onclick="selectSize(this)"
-                    class="option-btn active px-7 py-3.5 border-2 border-gray-300 rounded-2xl text-lg font-semibold min-w-[60px]"
-                  >
-                    M
-                  </button>
-                  <button
-                    onclick="selectSize(this)"
-                    class="option-btn px-7 py-3.5 border-2 border-gray-300 rounded-2xl text-lg font-semibold min-w-[60px]"
-                  >
-                    L
-                  </button>
+                <div class="w-full h-px bg-slate-100 my-6"></div>
+
+                <div class="space-y-6">
+                  <div id="size-group">
+                    <p
+                      class="text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-2.5"
+                    >
+                      Select Size
+                    </p>
+                    <div class="flex flex-wrap gap-2.5">
+                      <button
+                        type="button"
+                        data-size="M"
+                        class="size-option option-btn h-11 px-5 border border-slate-950 rounded-xl text-xs font-semibold bg-slate-950 text-white shadow-sm min-w-[56px] tracking-wider transition-all"
+                      >
+                        M
+                      </button>
+                      <button
+                        type="button"
+                        data-size="L"
+                        class="size-option option-btn h-11 px-5 border border-slate-200 rounded-xl text-xs font-semibold bg-white text-slate-800 hover:border-slate-400 shadow-sm min-w-[56px] tracking-wider transition-all"
+                      >
+                        L
+                      </button>
+                    </div>
+                  </div>
+
+                  <div id="color-group">
+                    <p
+                      class="text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-2.5"
+                    >
+                      Select Color
+                    </p>
+                    <div class="flex flex-wrap gap-2.5">
+                      <button
+                        type="button"
+                        data-color="Natural"
+                        class="color-option option-btn h-11 px-5 border border-slate-950 rounded-xl text-xs font-semibold bg-slate-950 text-white shadow-sm transition-all"
+                      >
+                        Natural
+                      </button>
+                      <button
+                        type="button"
+                        data-color="Black"
+                        class="color-option option-btn h-11 px-5 border border-slate-200 rounded-xl text-xs font-semibold bg-white text-slate-800 hover:border-slate-400 shadow-sm transition-all"
+                      >
+                        Black
+                      </button>
+                    </div>
+                  </div>
                 </div>
-              </div>
 
-              <div class="mt-8">
-                <p
-                  class="text-sm font-bold text-gray-500 uppercase tracking-widest mb-3"
-                >
-                  Color
-                </p>
-                <div class="flex gap-3">
-                  <button
-                    onclick="selectColor(this)"
-                    class="option-btn active px-7 py-3.5 border-2 border-gray-300 rounded-2xl text-lg font-semibold"
-                  >
-                    Natural
-                  </button>
-                  <button
-                    onclick="selectColor(this)"
-                    class="option-btn px-7 py-3.5 border-2 border-gray-300 rounded-2xl text-lg font-semibold"
-                  >
-                    Black
-                  </button>
-                </div>
-              </div>
-
-              <p id="selection" class="text-gray-500 mt-6 text-base md:text-lg">
-                Size: <span class="text-gray-700 font-medium">M</span> | Color:
-                <span class="text-gray-700 font-medium">Natural</span>
-              </p>
-
-              <div class="mt-8 pt-6 border-t border-gray-100">
-                <label
-                  class="block text-xs font-bold text-gray-400 uppercase tracking-widest mb-3"
-                  >Quantity</label
-                >
                 <div
-                  class="flex items-center gap-2 bg-gray-50 border-2 border-gray-100 rounded-3xl p-2 w-fit"
+                  class="mt-6 bg-slate-50/80 border border-slate-100 rounded-xl px-4 py-2.5 inline-flex items-center gap-1.5 text-xs text-slate-500 font-medium"
                 >
-                  <button
-                    id="decrease-btn"
-                    onclick="decreaseQty()"
-                    class="qty-btn qty-decrease w-12 h-12 flex items-center justify-center text-3xl font-light text-gray-600 rounded-2xl hover:bg-white transition-all"
-                  >
-                    −
-                  </button>
-
+                  <span>Selected:</span>
                   <span
-                    id="quantity"
-                    class="font-black text-3xl w-16 text-center text-gray-800"
-                    >1</span
+                    id="selection-summary"
+                    class="text-slate-900 font-semibold"
+                    >M / Natural</span
                   >
-
-                  <button
-                    onclick="increaseQty()"
-                    class="qty-btn w-12 h-12 flex items-center justify-center text-3xl font-light text-gray-600 rounded-2xl hover:bg-white transition-all"
-                  >
-                    +
-                  </button>
                 </div>
               </div>
 
-              <span
-                class="mt-6 inline-block text-base font-bold text-green-600 bg-green-50 px-6 py-3 rounded-full uppercase tracking-wider text-xs"
-              >
-                In Stock & Ready
-              </span>
+              <div class="mt-8 pt-6 border-t border-slate-100/80 space-y-5">
+                <div>
+                  <p
+                    class="text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-2"
+                  >
+                    Quantity
+                  </p>
+                  <div
+                    class="flex items-center justify-between border border-slate-200 rounded-xl overflow-hidden bg-white shadow-sm h-12 w-full sm:w-32 transition-all focus-within:border-slate-400"
+                  >
+                    <button
+                      type="button"
+                      id="btn-decrease"
+                      disabled
+                      class="w-10 h-full flex items-center justify-center text-slate-400 hover:bg-slate-50 active:bg-slate-100/80 disabled:opacity-25 disabled:hover:bg-transparent transition-colors"
+                      aria-label="Decrease quantity"
+                    >
+                      <i class="fa-solid fa-minus text-[10px]"></i>
+                    </button>
+                    <span
+                      id="quantity-display"
+                      class="flex-1 text-center font-bold text-xs text-slate-900 select-none"
+                      >1</span
+                    >
+                    <button
+                      type="button"
+                      id="btn-increase"
+                      class="w-10 h-full flex items-center justify-center text-slate-400 hover:bg-slate-50 active:bg-slate-100/80 transition-colors"
+                      aria-label="Increase quantity"
+                    >
+                      <i class="fa-solid fa-plus text-[10px]"></i>
+                    </button>
+                  </div>
+                </div>
 
-              <button
-                onclick="addToCart()"
-                class="mt-10 w-full bg-[#1A1A1A] hover:bg-black text-white font-bold text-lg py-5 rounded-2xl transition-all active:scale-[0.97] flex items-center justify-center gap-3 shadow-lg"
-              >
-                <i class="fa-solid fa-cart-plus"></i> CONFIRM VARIANT & ADD
-              </button>
+                <button
+                  type="button"
+                  id="btn-add-to-cart"
+                  class="w-full bg-slate-950 hover:bg-slate-850 text-white font-semibold text-xs tracking-wider uppercase h-12 rounded-xl transition-all active:scale-[0.99] shadow-sm flex items-center justify-center gap-2"
+                >
+                  <i
+                    class="fa-solid fa-basket-shopping text-[11px] opacity-90"
+                  ></i>
+                  Confirm Variant & Add
+                </button>
+
+                <div
+                  class="flex items-center gap-2 text-[11px] font-semibold text-emerald-700 bg-emerald-50/60 border border-emerald-100/50 w-fit px-3 py-1.5 rounded-lg"
+                >
+                  <span class="relative flex h-1.5 w-1.5">
+                    <span
+                      class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"
+                    ></span>
+                    <span
+                      class="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-500"
+                    ></span>
+                  </span>
+                  In Stock & Ready to Ship
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -230,131 +265,170 @@
     </main>
 
     <script>
-      // Read selected product
-      const selectedProduct = JSON.parse(
-        localStorage.getItem("selectedProduct"),
-      );
-
-      if (!selectedProduct) {
-        alert("No item selected! Returning to showroom gallery list.");
-        window.location.href = "index.html";
-      }
-
-      let currentSize = "M";
-      let currentColor = "Natural";
-      let quantity = 1;
-
-      function renderPageData() {
-        document.getElementById("product-img").src = selectedProduct.image;
-        document.getElementById("product-img").alt = selectedProduct.name;
-        document.getElementById("product-price").textContent =
-          `$${selectedProduct.price.toFixed(2)}`;
-
-        const nameParts = selectedProduct.name.split(" ");
-        if (nameParts.length > 1) {
-          document.getElementById("product-brand").textContent = nameParts[0];
-          document.getElementById("product-title").textContent = nameParts
-            .slice(1)
-            .join(" ");
-        } else {
-          document.getElementById("product-brand").textContent = "DESIGN";
-          document.getElementById("product-title").textContent =
-            selectedProduct.name;
-        }
-      }
-
-      function selectSize(btn) {
-        document.querySelectorAll(".option-btn").forEach((b) => {
-          if (["M", "L"].includes(b.textContent.trim()))
-            b.classList.remove("active");
-        });
-        btn.classList.add("active");
-        currentSize = btn.textContent.trim();
-        updateSelection();
-      }
-
-      function selectColor(btn) {
-        document.querySelectorAll(".option-btn").forEach((b) => {
-          if (["Natural", "Black"].includes(b.textContent.trim()))
-            b.classList.remove("active");
-        });
-        btn.classList.add("active");
-        currentColor = btn.textContent.trim();
-        updateSelection();
-      }
-
-      function updateSelection() {
-        document.getElementById("selection").innerHTML = `
-          Size: <span class="text-gray-700 font-medium">${currentSize}</span> | 
-          Color: <span class="text-gray-700 font-medium">${currentColor}</span>
-        `;
-      }
-
-      function increaseQty() {
-        quantity++;
-        document.getElementById("quantity").textContent = quantity;
-        document.getElementById("decrease-btn").disabled = false;
-      }
-
-      function decreaseQty() {
-        if (quantity > 1) {
-          quantity--;
-          document.getElementById("quantity").textContent = quantity;
-
-          if (quantity === 1) {
-            document.getElementById("decrease-btn").disabled = true;
-          }
-        }
-      }
-
-      function updateHeaderCount() {
-        let cart = JSON.parse(localStorage.getItem("cart")) || [];
-        let totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-        const badge = document.getElementById("bag-count");
-
-        if (totalItems > 0) {
-          badge.textContent = totalItems;
-          badge.classList.remove("hidden");
-        } else {
-          badge.classList.add("hidden");
-        }
-      }
-
-      function addToCart() {
-        let cart = JSON.parse(localStorage.getItem("cart")) || [];
-
-        let existingItemIndex = cart.findIndex(
-          (item) =>
-            item.id === selectedProduct.id &&
-            item.size === currentSize &&
-            item.color === currentColor,
+      // Safe isolated script execution scope environment
+      document.addEventListener("DOMContentLoaded", () => {
+        const selectedProduct = JSON.parse(
+          localStorage.getItem("selectedProduct"),
         );
 
-        if (existingItemIndex > -1) {
-          cart[existingItemIndex].quantity += quantity;
-        } else {
-          cart.push({
-            id: selectedProduct.id,
-            name: selectedProduct.name,
-            price: selectedProduct.price,
-            image: selectedProduct.image,
-            size: currentSize,
-            color: currentColor,
-            quantity: quantity,
+        if (!selectedProduct) {
+          alert("No item selected! Returning to showroom gallery list.");
+          window.location.href = "index.html";
+          return;
+        }
+
+        let currentSize = "M";
+        let currentColor = "Natural";
+        let quantity = 1;
+
+        // Cache DOM Elements safely
+        const qtyDisplay = document.getElementById("quantity-display");
+        const decreaseBtn = document.getElementById("btn-decrease");
+        const increaseBtn = document.getElementById("btn-increase");
+        const addToCartBtn = document.getElementById("btn-add-to-cart");
+        const summaryEl = document.getElementById("selection-summary");
+
+        function renderPageData() {
+          const imgEl = document.getElementById("product-img");
+          const priceEl = document.getElementById("product-price");
+          const brandEl = document.getElementById("product-brand");
+          const titleEl = document.getElementById("product-title");
+
+          if (imgEl) {
+            imgEl.src = selectedProduct.image;
+            imgEl.alt = selectedProduct.name;
+          }
+          if (priceEl) {
+            priceEl.textContent = `$${selectedProduct.price.toFixed(2)}`;
+          }
+
+          const nameParts = selectedProduct.name.split(" ");
+          if (nameParts.length > 1) {
+            if (brandEl) brandEl.textContent = nameParts[0];
+            if (titleEl) titleEl.textContent = nameParts.slice(1).join(" ");
+          } else {
+            if (brandEl) brandEl.textContent = "DESIGN";
+            if (titleEl) titleEl.textContent = selectedProduct.name;
+          }
+        }
+
+        // Modern styling visual toggle logic handler
+        function updateButtonVisuals(buttonsList, selectedButton) {
+          buttonsList.forEach((btn) => {
+            btn.className =
+              "option-btn h-11 px-5 border border-slate-200 rounded-xl text-xs font-semibold bg-white text-slate-800 hover:border-slate-400 shadow-sm min-w-[56px] tracking-wider transition-all";
+          });
+          selectedButton.className =
+            "option-btn h-11 px-5 border border-slate-950 rounded-xl text-xs font-semibold bg-slate-950 text-white shadow-sm min-w-[56px] tracking-wider transition-all";
+        }
+
+        // Attach Event Listeners to Sizes
+        const sizeButtons = document.querySelectorAll(".size-option");
+        sizeButtons.forEach((button) => {
+          button.addEventListener("click", (e) => {
+            updateButtonVisuals(sizeButtons, e.currentTarget);
+            currentSize = e.currentTarget.getAttribute("data-size");
+            updateSelectionSummary();
+          });
+        });
+
+        // Attach Event Listeners to Colors
+        const colorButtons = document.querySelectorAll(".color-option");
+        colorButtons.forEach((button) => {
+          button.addEventListener("click", (e) => {
+            updateButtonVisuals(colorButtons, e.currentTarget);
+            currentColor = e.currentTarget.getAttribute("data-color");
+            updateSelectionSummary();
+          });
+        });
+
+        function updateSelectionSummary() {
+          if (summaryEl) {
+            summaryEl.textContent = `${currentSize} / ${currentColor}`;
+          }
+        }
+
+        // Quantity Handlers via Event Listeners
+        if (increaseBtn) {
+          increaseBtn.addEventListener("click", () => {
+            quantity++;
+            qtyDisplay.textContent = quantity;
+            decreaseBtn.disabled = false;
           });
         }
 
-        localStorage.setItem("cart", JSON.stringify(cart));
+        if (decreaseBtn) {
+          decreaseBtn.addEventListener("click", () => {
+            if (quantity > 1) {
+              quantity--;
+              qtyDisplay.textContent = quantity;
+              if (quantity === 1) {
+                decreaseBtn.disabled = true;
+              }
+            }
+          });
+        }
+
+        function updateHeaderCount() {
+          // Named uniquely to completely prevent global scope namespace collision crashes
+          const uniquePageCartItems =
+            JSON.parse(localStorage.getItem("cart")) || [];
+          const totalItems = uniquePageCartItems.reduce(
+            (sum, item) => sum + item.quantity,
+            0,
+          );
+          const badge = document.getElementById("bag-count");
+
+          if (badge) {
+            if (totalItems > 0) {
+              badge.textContent = totalItems;
+              badge.classList.remove("hidden");
+            } else {
+              badge.classList.add("hidden");
+            }
+          }
+        }
+
+        if (addToCartBtn) {
+          addToCartBtn.addEventListener("click", () => {
+            const uniquePageCartItems =
+              JSON.parse(localStorage.getItem("cart")) || [];
+
+            const existingItemIndex = uniquePageCartItems.findIndex(
+              (item) =>
+                item.id === selectedProduct.id &&
+                item.size === currentSize &&
+                item.color === currentColor,
+            );
+
+            if (existingItemIndex > -1) {
+              uniquePageCartItems[existingItemIndex].quantity += quantity;
+            } else {
+              uniquePageCartItems.push({
+                id: selectedProduct.id,
+                name: selectedProduct.name,
+                price: selectedProduct.price,
+                image: selectedProduct.image,
+                size: currentSize,
+                color: currentColor,
+                quantity: quantity,
+              });
+            }
+
+            localStorage.setItem("cart", JSON.stringify(uniquePageCartItems));
+            updateHeaderCount();
+
+            alert(
+              `Added ${quantity}x ${selectedProduct.name} (${currentSize} / ${currentColor}) to your bag!`,
+            );
+          });
+        }
+
+        // Run Initializations
+        renderPageData();
         updateHeaderCount();
-
-        alert(
-          `Added ${quantity}x ${selectedProduct.name} (${currentSize} / ${currentColor}) to your bag!`,
-        );
-      }
-
-      // Initialize
-      renderPageData();
-      updateHeaderCount();
+        updateSelectionSummary();
+      });
     </script>
   </body>
 </html>

@@ -18,10 +18,10 @@
     </style>
   </head>
   <body
-    class="bg-zinc-50 text-neutral-900 min-h-screen flex flex-col antialiased"
+    class="bg-[#FAFAFA] text-zinc-900 min-h-screen flex flex-col antialiased"
   >
     <header
-      class="bg-[#1A1A1A] shadow-md sticky top-0 z-50 py-4 transition-all duration-300"
+      class="bg-[#121212] border-b border-zinc-800 sticky top-0 z-50 py-4 transition-all duration-300"
     >
       <nav
         class="max-w-7xl mx-auto px-4 sm:px-6 flex justify-between items-center"
@@ -32,140 +32,146 @@
         >
           <img
             src="images/white.png"
-            class="h-10 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+            class="h-9 w-auto object-contain transition-transform duration-300 group-hover:scale-102"
             alt="logo"
           />
         </a>
         <a
           href="./index.html"
-          class="text-neutral-300 hover:text-amber-500 transition-colors font-semibold text-xs tracking-widest flex items-center gap-2 group"
+          class="text-zinc-400 hover:text-white transition-colors font-bold text-[11px] tracking-[0.2em] flex items-center gap-2.5 group"
         >
           <i
-            class="fa-solid fa-arrow-left transition-transform group-hover:-translate-x-1"
+            class="fa-solid fa-arrow-left text-[10px] transition-transform group-hover:-translate-x-1"
           ></i>
           CONTINUE SHOPPING
         </a>
       </nav>
     </header>
 
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 py-12 flex-1 w-full">
-      <h1
-        class="text-3xl md:text-4xl font-extrabold mb-10 flex items-center gap-4 tracking-tight"
-      >
-        <i class="fa-solid fa-bag-shopping text-amber-500 animate-pulse"></i>
-        Your Shopping Bag
-      </h1>
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 py-12 md:py-16 flex-1 w-full">
+      <div class="mb-10">
+        <span
+          class="text-[11px] font-bold tracking-[0.25em] text-zinc-400 uppercase block mb-1"
+        >
+          Review Selection
+        </span>
+        <h1
+          class="text-2xl md:text-3xl font-bold tracking-tight text-zinc-900 flex items-center gap-3"
+        >
+          YOUR SHOPPING BAG
+        </h1>
+      </div>
 
-      <div class="grid grid-cols-1 lg:grid-cols-3 gap-10 items-start">
-        <div id="cart-items-container" class="lg:col-span-2 space-y-6"></div>
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
+        <div id="cart-items-container" class="lg:col-span-7 space-y-5"></div>
 
-        <div class="lg:col-span-1 space-y-8">
+        <div class="lg:col-span-5 space-y-6">
           <div
-            class="bg-white p-6 sm:p-8 rounded-3xl border border-neutral-100 shadow-sm transition-all"
+            class="bg-white p-6 sm:p-8 rounded-2xl border border-zinc-100 shadow-[0_10px_30px_rgba(0,0,0,0.01)]"
           >
             <h2
-              class="text-xl font-bold text-neutral-800 mb-6 flex items-center gap-2"
+              class="text-xs font-bold uppercase tracking-[0.15em] text-zinc-400 mb-6 flex items-center gap-2.5"
             >
-              <i class="fa-regular fa-address-card text-neutral-400"></i>
+              <i class="fa-regular fa-address-card text-zinc-400 text-sm"></i>
               Delivery Information
             </h2>
 
-            <form id="customer-form" class="space-y-5">
-              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <form id="customer-form" class="space-y-4">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <label
-                    class="block text-xs font-semibold uppercase tracking-wider text-neutral-500 mb-2"
+                    class="block text-[10px] font-bold uppercase tracking-wider text-zinc-400 mb-2"
                   >
-                    Full Name <span class="text-red-500">*</span>
+                    Full Name <span class="text-zinc-400">*</span>
                   </label>
                   <input
                     type="text"
                     id="fullName"
                     required
                     placeholder="John Doe"
-                    class="w-full px-4 py-3.5 border border-neutral-200 rounded-2xl focus:outline-none focus:border-neutral-900 focus:ring-1 focus:ring-neutral-900 placeholder-neutral-400 text-sm transition-all"
+                    class="w-full px-4 h-12 border border-zinc-200 rounded-xl focus:outline-none focus:border-zinc-950 focus:ring-1 focus:ring-zinc-950 placeholder-zinc-300 text-xs font-medium transition-all bg-white"
                   />
                 </div>
                 <div>
                   <label
-                    class="block text-xs font-semibold uppercase tracking-wider text-neutral-500 mb-2"
+                    class="block text-[10px] font-bold uppercase tracking-wider text-zinc-400 mb-2"
                   >
-                    Phone Number <span class="text-red-500">*</span>
+                    Phone Number <span class="text-zinc-400">*</span>
                   </label>
                   <input
                     type="tel"
                     id="phone"
                     required
                     placeholder="+60123456789"
-                    class="w-full px-4 py-3.5 border border-neutral-200 rounded-2xl focus:outline-none focus:border-neutral-900 focus:ring-1 focus:ring-neutral-900 placeholder-neutral-400 text-sm transition-all"
+                    class="w-full px-4 h-12 border border-zinc-200 rounded-xl focus:outline-none focus:border-zinc-950 focus:ring-1 focus:ring-zinc-950 placeholder-zinc-300 text-xs font-medium transition-all bg-white"
                   />
                 </div>
               </div>
 
               <div>
                 <label
-                  class="block text-xs font-semibold uppercase tracking-wider text-neutral-500 mb-2"
+                  class="block text-[10px] font-bold uppercase tracking-wider text-zinc-400 mb-2"
                 >
-                  Email Address <span class="text-red-500">*</span>
+                  Email Address <span class="text-zinc-400">*</span>
                 </label>
                 <input
                   type="email"
                   id="email"
                   required
                   placeholder="name@domain.com"
-                  class="w-full px-4 py-3.5 border border-neutral-200 rounded-2xl focus:outline-none focus:border-neutral-900 focus:ring-1 focus:ring-neutral-900 placeholder-neutral-400 text-sm transition-all"
+                  class="w-full px-4 h-12 border border-zinc-200 rounded-xl focus:outline-none focus:border-zinc-950 focus:ring-1 focus:ring-zinc-950 placeholder-zinc-300 text-xs font-medium transition-all bg-white"
                 />
               </div>
 
               <div>
                 <label
-                  class="block text-xs font-semibold uppercase tracking-wider text-neutral-500 mb-2"
+                  class="block text-[10px] font-bold uppercase tracking-wider text-zinc-400 mb-2"
                 >
-                  Shipping Address <span class="text-red-500">*</span>
+                  Shipping Address <span class="text-zinc-400">*</span>
                 </label>
                 <textarea
                   id="address"
                   rows="3"
                   required
                   placeholder="Street name, Unit/Apt number..."
-                  class="w-full px-4 py-3.5 border border-neutral-200 rounded-2xl focus:outline-none focus:border-neutral-900 focus:ring-1 focus:ring-neutral-900 placeholder-neutral-400 text-sm resize-none transition-all"
+                  class="w-full px-4 py-3 border border-zinc-200 rounded-xl focus:outline-none focus:border-zinc-950 focus:ring-1 focus:ring-zinc-950 placeholder-zinc-300 text-xs font-medium resize-none transition-all bg-white"
                 ></textarea>
               </div>
 
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <label
-                    class="block text-xs font-semibold uppercase tracking-wider text-neutral-500 mb-2"
+                    class="block text-[10px] font-bold uppercase tracking-wider text-zinc-400 mb-2"
                   >
-                    City <span class="text-red-500">*</span>
+                    City <span class="text-zinc-400">*</span>
                   </label>
                   <input
                     type="text"
                     id="city"
                     required
                     placeholder="Kuala Lumpur"
-                    class="w-full px-4 py-3.5 border border-neutral-200 rounded-2xl focus:outline-none focus:border-neutral-900 focus:ring-1 focus:ring-neutral-900 text-sm transition-all"
+                    class="w-full px-4 h-12 border border-zinc-200 rounded-xl focus:outline-none focus:border-zinc-950 focus:ring-1 focus:ring-zinc-950 text-xs font-medium transition-all bg-white"
                   />
                 </div>
                 <div>
                   <label
-                    class="block text-xs font-semibold uppercase tracking-wider text-neutral-500 mb-2"
+                    class="block text-[10px] font-bold uppercase tracking-wider text-zinc-400 mb-2"
                   >
-                    Postal Code <span class="text-red-500">*</span>
+                    Postal Code <span class="text-zinc-400">*</span>
                   </label>
                   <input
                     type="text"
                     id="postalCode"
                     required
                     placeholder="50000"
-                    class="w-full px-4 py-3.5 border border-neutral-200 rounded-2xl focus:outline-none focus:border-neutral-900 focus:ring-1 focus:ring-neutral-900 text-sm transition-all"
+                    class="w-full px-4 h-12 border border-zinc-200 rounded-xl focus:outline-none focus:border-zinc-950 focus:ring-1 focus:ring-zinc-950 text-xs font-medium transition-all bg-white"
                   />
                 </div>
               </div>
 
               <div>
                 <label
-                  class="block text-xs font-semibold uppercase tracking-wider text-neutral-500 mb-2"
+                  class="block text-[10px] font-bold uppercase tracking-wider text-zinc-400 mb-2"
                 >
                   Country
                 </label>
@@ -173,7 +179,7 @@
                   type="text"
                   id="country"
                   value="Malaysia"
-                  class="w-full px-4 py-3.5 border border-neutral-200 rounded-2xl bg-neutral-50 font-medium text-neutral-600 text-sm focus:outline-none cursor-default"
+                  class="w-full px-4 h-12 border border-zinc-100 rounded-xl bg-zinc-50 font-semibold text-zinc-500 text-xs focus:outline-none cursor-default"
                   readonly
                 />
               </div>
@@ -181,53 +187,64 @@
           </div>
 
           <div
-            class="bg-white p-6 sm:p-8 rounded-3xl border border-neutral-100 shadow-sm sticky top-28"
+            class="bg-white p-6 sm:p-8 rounded-2xl border border-zinc-100 shadow-[0_10px_30px_rgba(0,0,0,0.01)] sticky top-28"
           >
-            <h2 class="text-xl font-bold text-neutral-800 mb-6">
+            <h2
+              class="text-xs font-bold uppercase tracking-[0.15em] text-zinc-400 mb-6"
+            >
               Order Summary
             </h2>
 
-            <div class="space-y-4 text-sm">
-              <div class="flex justify-between items-center text-neutral-600">
+            <div class="space-y-4 text-xs">
+              <div
+                class="flex justify-between items-center text-zinc-500 font-medium"
+              >
                 <span id="subtotal-label">Subtotal (0 items)</span>
-                <span id="subtotal-price" class="font-semibold text-neutral-900"
+                <span id="subtotal-price" class="font-bold text-zinc-900"
                   >RM 0.00</span
                 >
               </div>
-              <div class="flex justify-between items-center text-neutral-600">
+              <div
+                class="flex justify-between items-center text-zinc-500 font-medium"
+              >
                 <span>Shipping Fee</span>
                 <span
                   id="shipping-price"
-                  class="text-emerald-600 font-bold bg-emerald-50 px-2.5 py-1 rounded-lg text-xs tracking-wide"
+                  class="text-zinc-900 font-bold bg-zinc-100 px-2.5 py-1 rounded-lg text-[10px] tracking-wider"
                   >FREE</span
                 >
               </div>
-              <div class="h-px bg-neutral-100 my-2"></div>
+
+              <div class="h-px bg-zinc-100 my-2"></div>
+
               <div
-                class="flex justify-between items-center text-base font-bold text-neutral-900 pt-2"
+                class="flex justify-between items-center text-xs font-bold text-zinc-900 pt-2"
               >
-                <span>Estimated Total</span>
+                <span class="uppercase tracking-wider text-[11px] text-zinc-500"
+                  >Estimated Total</span
+                >
                 <span
                   id="total-price"
-                  class="text-xl font-black text-neutral-900"
+                  class="text-xl font-black text-zinc-950 tracking-tight"
                   >RM 0.00</span
                 >
               </div>
             </div>
 
             <button
+              type="button"
               onclick="handleCheckout()"
               id="checkout-btn"
-              class="w-full mt-8 bg-neutral-950 text-white py-4 rounded-2xl font-bold text-base hover:bg-neutral-800 active:scale-[0.98] transition-all flex items-center justify-center gap-3 shadow-md disabled:bg-neutral-200 disabled:text-neutral-400 disabled:cursor-not-allowed disabled:transform-none disabled:shadow-none"
+              class="w-full mt-8 bg-zinc-950 text-white h-13 py-4 rounded-xl font-bold text-xs tracking-widest uppercase hover:bg-zinc-850 active:scale-[0.99] transition-all flex items-center justify-center gap-3 shadow-sm disabled:bg-zinc-100 disabled:text-zinc-300 disabled:cursor-not-allowed disabled:transform-none disabled:shadow-none"
             >
               COMPLETE ORDER
             </button>
 
             <p
-              class="text-center text-xs text-neutral-400 mt-5 flex items-center justify-center gap-1.5"
+              class="text-center text-[10px] font-bold tracking-wider uppercase text-zinc-400 mt-5 flex items-center justify-center gap-2"
             >
-              <i class="fa-solid fa-lock text-[10px]"></i> Secure Checkout
-              Process
+              <i class="fa-solid fa-lock text-[9px]"></i> Secure Checkout
+              Architecture
             </p>
           </div>
         </div>
@@ -250,14 +267,14 @@
 
         if (globalCart.length === 0) {
           container.innerHTML = `
-            <div class="bg-white p-12 rounded-3xl border border-neutral-100 shadow-sm text-center max-w-xl mx-auto my-6">
-              <div class="w-20 h-20 bg-neutral-50 rounded-full flex items-center justify-center mx-auto mb-5">
-                <i class="fa-solid fa-folder-open text-3xl text-neutral-300"></i>
+            <div class="bg-white p-12 md:p-16 rounded-2xl border border-zinc-100 shadow-[0_10px_30px_rgba(0,0,0,0.01)] text-center w-full my-2">
+              <div class="w-16 h-16 bg-zinc-50 rounded-full flex items-center justify-center mx-auto mb-5 border border-zinc-100/60">
+                <i class="fa-solid fa-basket-shopping text-xl text-zinc-300"></i>
               </div>
-              <h3 class="text-xl font-bold text-neutral-800 mb-2">Your Bag is Empty</h3>
-              <p class="text-neutral-400 text-sm max-w-sm mx-auto mb-8">Looks like you haven't added any products to your workspace showroom bag yet.</p>
-              <a href="./index.html" class="inline-flex items-center gap-2 bg-neutral-950 hover:bg-neutral-800 text-white font-bold px-6 py-3.5 rounded-xl transition-all active:scale-95 text-sm shadow-sm">
-                Explore Products <i class="fa-solid fa-arrow-right text-xs"></i>
+              <h3 class="text-lg font-bold text-zinc-900 mb-1.5 uppercase tracking-wide">Your Bag is Empty</h3>
+              <p class="text-zinc-400 text-xs font-medium max-w-xs mx-auto mb-8">Looks like you haven't added any products to your active collection yet.</p>
+              <a href="./index.html" class="inline-flex items-center gap-2.5 bg-zinc-950 hover:bg-zinc-850 text-white font-bold px-6 py-3.5 rounded-xl transition-all active:scale-95 text-xs tracking-wider uppercase shadow-sm">
+                Explore Studio Products <i class="fa-solid fa-arrow-right text-[10px]"></i>
               </a>
             </div>
           `;
@@ -277,33 +294,33 @@
           globalSubtotalPrice += itemTotalCost;
 
           htmlContent += `
-            <div class="bg-white p-5 sm:p-6 rounded-3xl border border-neutral-100 shadow-sm flex flex-col sm:flex-row gap-5 items-start sm:items-center transition-all hover:border-neutral-200">
-              <div class="w-24 h-24 sm:w-28 sm:h-28 bg-neutral-50 rounded-2xl overflow-hidden flex-shrink-0 border border-neutral-100">
-                <img src="${item.image}" alt="${item.name}" class="w-full h-full object-cover">
+            <div class="bg-white p-5 rounded-2xl border border-zinc-100 shadow-[0_10px_30px_rgba(0,0,0,0.01)] flex flex-col sm:flex-row gap-5 items-start sm:items-center transition-all hover:border-zinc-200">
+              <div class="w-24 h-24 sm:w-26 sm:h-26 bg-zinc-50 rounded-xl overflow-hidden flex-shrink-0 border border-zinc-100 bg-[#FAFAFA] p-1 flex items-center justify-center">
+                <img src="${item.image}" alt="${item.name}" class="w-full h-full object-cover rounded-lg mix-blend-multiply">
               </div>
               
               <div class="flex-1 w-full">
                 <div class="flex justify-between items-start gap-4">
                   <div>
-                    <h3 class="font-bold text-lg text-neutral-800 leading-snug">${item.name}</h3>
-                    <p class="text-neutral-400 text-xs mt-1 font-medium flex items-center gap-1.5">
-                      <span>Size: <strong class="text-neutral-700 font-semibold">${item.size}</strong></span>
-                      <span class="text-neutral-200">•</span>
-                      <span>Color: <strong class="text-neutral-700 font-semibold">${item.color}</strong></span>
+                    <h3 class="font-bold text-base text-zinc-900 uppercase tracking-tight leading-tight">${item.name}</h3>
+                    <p class="text-zinc-400 text-[11px] mt-1.5 font-bold uppercase tracking-wider flex items-center gap-2">
+                      <span>Size <strong class="text-zinc-800 font-extrabold ml-0.5">${item.size}</strong></span>
+                      <span class="text-zinc-200 font-normal">•</span>
+                      <span>Color <strong class="text-zinc-800 font-extrabold ml-0.5">${item.color}</strong></span>
                     </p>
                   </div>
-                  <button onclick="removeItem(${index})" class="text-neutral-400 hover:text-rose-500 p-1.5 hover:bg-rose-50 rounded-xl transition-all active:scale-90 flex-shrink-0" title="Remove product">
-                    <i class="fa-solid fa-trash-can text-sm"></i>
+                  <button onclick="removeItem(${index})" class="text-zinc-400 hover:text-zinc-900 p-2 hover:bg-zinc-50 rounded-xl transition-all active:scale-90 flex-shrink-0" title="Remove product">
+                    <i class="fa-solid fa-trash-can text-xs"></i>
                   </button>
                 </div>
                 
-                <div class="flex items-center justify-between mt-5 pt-3 border-t border-neutral-50">
-                  <div class="flex items-center bg-neutral-50 border border-neutral-200/60 rounded-xl p-1 shadow-inner">
-                    <button onclick="updateQuantity(${index}, -1)" class="w-8 h-8 flex items-center justify-center font-bold hover:bg-white rounded-lg transition-colors text-neutral-500 active:scale-95 text-sm">-</button>
-                    <span class="w-10 text-center font-bold text-neutral-800 text-sm">${item.quantity}</span>
-                    <button onclick="updateQuantity(${index}, 1)" class="w-8 h-8 flex items-center justify-center font-bold hover:bg-white rounded-lg transition-colors text-neutral-500 active:scale-95 text-sm">+</button>
+                <div class="flex items-center justify-between mt-6 pt-3 border-t border-zinc-50">
+                  <div class="flex items-center bg-zinc-50 border border-zinc-200 rounded-xl p-0.5 shadow-sm h-9">
+                    <button onclick="updateQuantity(${index}, -1)" class="w-8 h-full flex items-center justify-center font-bold hover:bg-white rounded-lg transition-colors text-zinc-400 hover:text-zinc-900 active:scale-95 text-xs">-</button>
+                    <span class="w-8 text-center font-bold text-zinc-900 text-xs">${item.quantity}</span>
+                    <button onclick="updateQuantity(${index}, 1)" class="w-8 h-full flex items-center justify-center font-bold hover:bg-white rounded-lg transition-colors text-zinc-400 hover:text-zinc-900 active:scale-95 text-xs">+</button>
                   </div>
-                  <p class="font-extrabold text-neutral-900 text-lg">RM${itemTotalCost.toFixed(2)}</p>
+                  <p class="font-bold text-zinc-900 text-base tracking-tight">RM ${itemTotalCost.toFixed(2)}</p>
                 </div>
               </div>
             </div>
