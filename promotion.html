@@ -1,259 +1,368 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" class="scroll-smooth">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Special Promotion | Never Give Up</title>
-     <link rel="icon" type="image/png" href="images/white.png">
+    <link rel="icon" type="image/png" href="images/white.png" />
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap"
+      rel="stylesheet"
+    />
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    
-    
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+
     <style>
-        body { font-family: 'Inter', sans-serif; }
+      body {
+        font-family: "Inter", sans-serif;
+      }
     </style>
-</head>
-<body class="bg-gray-50">
-
+  </head>
+  <body class="bg-gray-50">
     <!-- Header Navigation -->
-    <header id="main-header" class="bg-[#252525] shadow-lg sticky top-0 z-50 py-4 transition-all duration-300">
-        <nav class="max-w-7xl mx-auto px-6 flex justify-between items-center">
-            <a href="./index.html" class="flex items-center gap-3 group">
-                <img id="nav-logo" src="images/white.png" class="h-14 w-auto object-contain transition-transform duration-500 group-hover:scale-105" alt="logo">
-            </a>
+    <header
+      id="main-header"
+      class="bg-[#252525] shadow-lg sticky top-0 z-50 py-4 transition-all duration-300"
+    >
+      <nav class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+        <a href="./index.html" class="flex items-center gap-3 group">
+          <img
+            id="nav-logo"
+            src="images/white.png"
+            class="h-14 w-auto object-contain transition-transform duration-500 group-hover:scale-105"
+            alt="logo"
+          />
+        </a>
 
-            <!-- Desktop Menu -->
-            <ul class="hidden md:flex gap-10 items-center">
-                <li><a href="./index.html" class="flex items-center gap-2 text-white hover:text-amber-500 transition-colors font-medium"><i class="fa-regular fa-house"></i><span>Home</span></a></li>
-                <li><a href="./index.html#about" class="flex items-center gap-2 text-white hover:text-amber-500 transition-colors font-medium"><i class="fa-solid fa-users-gear"></i><span>About Us</span></a></li>
-                <li><a href="./index.html#promotion" class="flex items-center gap-2 text-white hover:text-amber-500 transition-colors font-medium"><i class="fa-solid fa-rectangle-ad"></i><span>Promotion</span></a></li>
-                <li><a href="./index.html#fashion" class="flex items-center gap-2 text-white hover:text-amber-500 transition-colors font-medium"><i class="fa-brands fa-cotton-bureau"></i><span>Fashion</span></a></li>
-                <li><a href="./index.html#contact" class="flex items-center gap-2 text-white hover:text-amber-500 transition-colors font-medium"><i class="fa-regular fa-address-book"></i><span>Contact</span></a></li>
-                <li class="relative list-none"><a href="./bag.html" aria-label="Shopping bag" class="flex items-center gap-2 text-white hover:text-amber-500 transition-colors font-medium"><i class="fa-solid fa-bag-shopping" aria-hidden="true"></i><span>Bag</span><span id="bag-count" aria-hidden="true"class="absolute -top-2 -right-4 flex items-center justify-center h-5 w-5 bg-amber-500 text-white text-[10px] font-bold rounded-full hidden">0</span></a></li>
-            </ul>
+        <!-- Desktop Menu -->
+        <ul class="hidden md:flex gap-10 items-center">
+          <li>
+            <a
+              href="./index.html"
+              class="flex items-center gap-2 text-white hover:text-amber-500 transition-colors font-medium"
+            >
+              <i class="fa-solid fa-house text-xl"></i><span>Home</span></a
+            >
+          </li>
+          <li>
+            <a
+              href="./index.html#about"
+              class="flex items-center gap-2 text-white hover:text-amber-500 transition-colors font-medium"
+              ><i class="fa-solid fa-users-gear"></i><span>About Us</span></a
+            >
+          </li>
+          <li>
+            <a
+              href="./index.html#promotion"
+              class="flex items-center gap-2 text-white hover:text-amber-500 transition-colors font-medium"
+              ><i class="fa-solid fa-rectangle-ad"></i><span>Promotion</span></a
+            >
+          </li>
+          <li>
+            <a
+              href="./index.html#fashion"
+              class="flex items-center gap-2 text-white hover:text-amber-500 transition-colors font-medium"
+              ><i class="fa-brands fa-cotton-bureau"></i><span>Fashion</span></a
+            >
+          </li>
+          <li>
+            <a
+              href="./index.html#contact"
+              class="flex items-center gap-2 text-white hover:text-amber-500 transition-colors font-medium"
+              ><i class="fa-regular fa-address-book"></i><span>Contact</span></a
+            >
+          </li>
+          <li class="relative list-none">
+            <a
+              href="./bag.html"
+              aria-label="Shopping bag"
+              class="flex items-center gap-2 text-white hover:text-amber-500 transition-colors font-medium"
+              ><i class="fa-solid fa-bag-shopping" aria-hidden="true"></i
+              ><span>Bag</span
+              ><span
+                id="bag-count"
+                aria-hidden="true"
+                class="absolute -top-2 -right-4 flex items-center justify-center h-5 w-5 bg-amber-500 text-white text-[10px] font-bold rounded-full hidden"
+                >0</span
+              ></a
+            >
+          </li>
+        </ul>
 
-            <!-- Mobile Toggle -->
-            <button id="menu-open-button" class="md:hidden text-2xl text-white">
-                <i class="fas fa-bars"></i>
-            </button>
-        </nav>
+        <!-- Mobile Toggle -->
+        <button id="menu-open-button" class="md:hidden text-2xl text-white">
+          <i class="fas fa-bars"></i>
+        </button>
+      </nav>
     </header>
 
     <!-- Promotion Section -->
     <section id="promotion" class="relative overflow-hidden py-16 lg:py-24">
-        <div class="max-w-7xl mx-auto px-6">
-            
-            <!-- Main Banner Card -->
-            <div class="relative bg-zinc-950 rounded-[3rem] overflow-hidden shadow-2xl">
-                
-                <!-- Background Decorative Blobs -->
-                <div class="absolute top-0 right-0 -mt-20 -mr-20 w-96 h-96 bg-blue-600 rounded-full blur-[140px] opacity-20"></div>
-                <div class="absolute bottom-0 left-0 -mb-20 -ml-20 w-96 h-96 bg-purple-600 rounded-full blur-[140px] opacity-20"></div>
+      <div class="max-w-7xl mx-auto px-6">
+        <!-- Main Banner Card -->
+        <div
+          class="relative bg-zinc-950 rounded-[3rem] overflow-hidden shadow-2xl"
+        >
+          <!-- Background Decorative Blobs -->
+          <div
+            class="absolute top-0 right-0 -mt-20 -mr-20 w-96 h-96 bg-blue-600 rounded-full blur-[140px] opacity-20"
+          ></div>
+          <div
+            class="absolute bottom-0 left-0 -mb-20 -ml-20 w-96 h-96 bg-purple-600 rounded-full blur-[140px] opacity-20"
+          ></div>
 
-                <div class="grid grid-cols-1 lg:grid-cols-2 items-center">
-                    
-                    <!-- LEFT SIDE: Text Content (FULLY CENTERED) -->
-                    <div class="p-10 lg:p-20 relative z-10 flex flex-col items-center text-center">
-                        <!-- Centered Badge -->
-                        <span class="inline-flex items-center gap-2 px-4 py-1.5 mb-8 text-xs font-bold tracking-widest text-blue-400 uppercase bg-blue-400/10 rounded-full border border-blue-400/20">
-                            <span class="relative flex h-2 w-2">
-                                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
-                                <span class="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
-                            </span>
-                            Limited Time Offer
-                        </span>
-                        
-                        <h2 class="text-7xl lg:text-8xl font-black text-white leading-tight mb-8 flex flex-col items-center">
-                            <span class="w-full">NEVER</span> 
-                            <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 lg:text-8xl">
-                                GIVE UP
-                            </span>
-                        </h2>
-                        
-                        <p class="text-gray-400 text-lg lg:text-xl mb-10 max-w-md leading-relaxed mx-auto">
-                            Upgrade your style with our premium performance gear. Designed for comfort, built for the grind.
-                        </p>
+          <div class="grid grid-cols-1 lg:grid-cols-2 items-center">
+            <!-- LEFT SIDE: Text Content (FULLY CENTERED) -->
+            <div
+              class="p-10 lg:p-20 relative z-10 flex flex-col items-center text-center"
+            >
+              <!-- Centered Badge -->
+              <span
+                class="inline-flex items-center gap-2 px-4 py-1.5 mb-8 text-xs font-bold tracking-widest text-blue-400 uppercase bg-blue-400/10 rounded-full border border-blue-400/20"
+              >
+                <span class="relative flex h-2 w-2">
+                  <span
+                    class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"
+                  ></span>
+                  <span
+                    class="relative inline-flex rounded-full h-2 w-2 bg-blue-500"
+                  ></span>
+                </span>
+                Limited Time Offer
+              </span>
 
-                        <!-- CTA Area -->
-                        <div class="flex flex-col sm:flex-row gap-6 items-center justify-center">
-                            <a href="./promotionAddToCart.html" class="w-full sm:w-auto text-center px-10 py-4 bg-white text-black font-bold rounded-xl hover:bg-blue-50 transition-all duration-300 hover:scale-105 shadow-xl">
-                                Shop Now
-                            </a>
-                            <div class="flex flex-col items-center sm:items-start">
-                                <span class="text-3xl font-bold text-white tracking-tighter">40% OFF</span>
-                                <span class="text-gray-500 line-through text-sm">RRP $120</span>
-                            </div>
-                        </div>
+              <h2
+                class="text-7xl lg:text-8xl font-black text-white leading-tight mb-8 flex flex-col items-center"
+              >
+                <span class="w-full">NEVER</span>
+                <span
+                  class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 lg:text-8xl"
+                >
+                  GIVE UP
+                </span>
+              </h2>
 
-                        <!-- Trust Signal -->
-                        <p class="mt-8 text-sm text-gray-500 flex items-center justify-center gap-2">
-                            <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
-                            Offer ends in 12 hours. Free shipping included.
-                        </p>
-                    </div>
+              <p
+                class="text-gray-400 text-lg lg:text-xl mb-10 max-w-md leading-relaxed mx-auto"
+              >
+                Upgrade your style with our premium performance gear. Designed
+                for comfort, built for the grind.
+              </p>
 
-                    <!-- RIGHT SIDE: Image -->
-                    <div class="relative h-96 lg:h-full min-h-[500px] bg-zinc-800 flex items-center justify-center group overflow-hidden">
-                        <img 
-                            src="images/minglong3.jpeg" 
-                            alt="Promotion Image" 
-                            class="absolute inset-0 w-full h-full object-cover mix-blend-luminosity group-hover:mix-blend-normal transition-all duration-1000 group-hover:scale-110"
-                        >
-                        <!-- Dark Gradient Overlay -->
-                        <div class="absolute inset-0 bg-gradient-to-t from-zinc-950 via-transparent to-transparent lg:bg-gradient-to-l lg:from-zinc-950"></div>
-                    </div>
-
+              <!-- CTA Area -->
+              <div
+                class="flex flex-col sm:flex-row gap-6 items-center justify-center"
+              >
+                <a
+                  href="./promotionAddToCart.html"
+                  class="w-full sm:w-auto text-center px-10 py-4 bg-white text-black font-bold rounded-xl hover:bg-blue-50 transition-all duration-300 hover:scale-105 shadow-xl"
+                >
+                  Shop Now
+                </a>
+                <div class="flex flex-col items-center sm:items-start">
+                  <span class="text-3xl font-bold text-white tracking-tighter"
+                    >20% OFF</span
+                  >
+                  <span class="text-gray-500 line-through text-sm"
+                    >RM 79.00</span
+                  >
                 </div>
+              </div>
+
+              <!-- Trust Signal -->
+              <p
+                class="mt-8 text-sm text-gray-500 flex items-center justify-center gap-2"
+              >
+                <span
+                  class="w-2 h-2 bg-green-500 rounded-full animate-pulse"
+                ></span>
+                Exclusive Limit Time Offer
+              </p>
             </div>
 
-            <!-- Bottom Mini-Promos -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
-                <div class="p-8 bg-white border border-gray-100 rounded-3xl flex items-center gap-5 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-                    <div class="w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center text-blue-600 text-2xl">
-                        <i class="fa-solid fa-truck-fast"></i>
-                    </div>
-                    <div>
-                        <h4 class="font-bold text-zinc-900">Fast Delivery</h4>
-                        <p class="text-sm text-gray-500 font-medium">2-3 business days</p>
-                    </div>
-                </div>
-                
-                <div class="p-8 bg-white border border-gray-100 rounded-3xl flex items-center gap-5 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-                    <div class="w-14 h-14 bg-purple-50 rounded-2xl flex items-center justify-center text-purple-600 text-2xl">
-                        <i class="fa-solid fa-shield-check"></i>
-                    </div>
-                    <div>
-                        <h4 class="font-bold text-zinc-900">Secure Payment</h4>
-                        <p class="text-sm text-gray-500 font-medium">SSL Encrypted</p>
-                    </div>
-                </div>
-
-                <div class="p-8 bg-white border border-gray-100 rounded-3xl flex items-center gap-5 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-                    <div class="w-14 h-14 bg-green-50 rounded-2xl flex items-center justify-center text-green-600 text-2xl">
-                        <i class="fa-solid fa-rotate-left"></i>
-                    </div>
-                    <div>
-                        <h4 class="font-bold text-zinc-900">Free Returns</h4>
-                        <p class="text-sm text-gray-500 font-medium">30-day money back</p>
-                    </div>
-                </div>
+            <!-- RIGHT SIDE: Image -->
+            <div
+              class="relative h-96 lg:h-full min-h-[500px] bg-zinc-800 flex items-center justify-center group overflow-hidden"
+            >
+              <img
+                src="images/minglong3.jpeg"
+                alt="Promotion Image"
+                class="absolute inset-0 w-full h-full object-cover mix-blend-luminosity group-hover:mix-blend-normal transition-all duration-1000 group-hover:scale-110"
+              />
+              <!-- Dark Gradient Overlay -->
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-zinc-950 via-transparent to-transparent lg:bg-gradient-to-l lg:from-zinc-950"
+              ></div>
             </div>
-
+          </div>
         </div>
+
+        <!-- Bottom Mini-Promos -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+          <div
+            class="p-8 bg-white border border-gray-100 rounded-3xl flex items-center gap-5 hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+          >
+            <div
+              class="w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center text-blue-600 text-2xl"
+            >
+              <i class="fa-solid fa-truck-fast"></i>
+            </div>
+            <div>
+              <h4 class="font-bold text-zinc-900">Fast Delivery</h4>
+              <p class="text-sm text-gray-500 font-medium">2-3 business days</p>
+            </div>
+          </div>
+
+          <div
+            class="p-8 bg-white border border-gray-100 rounded-3xl flex items-center gap-5 hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+          >
+            <div
+              class="w-14 h-14 bg-purple-50 rounded-2xl flex items-center justify-center text-purple-600 text-2xl"
+            >
+              <i class="fa-solid fa-shield-check"></i>
+            </div>
+            <div>
+              <h4 class="font-bold text-zinc-900">Secure Payment</h4>
+              <p class="text-sm text-gray-500 font-medium">SSL Encrypted</p>
+            </div>
+          </div>
+
+          <div
+            class="p-8 bg-white border border-gray-100 rounded-3xl flex items-center gap-5 hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+          >
+            <div
+              class="w-14 h-14 bg-green-50 rounded-2xl flex items-center justify-center text-green-600 text-2xl"
+            >
+              <i class="fa-solid fa-rotate-left"></i>
+            </div>
+            <div>
+              <h4 class="font-bold text-zinc-900">Free Returns</h4>
+              <p class="text-sm text-gray-500 font-medium">30-day money back</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Footer Script -->
     <script>
+      // Set product configuration parameters
+      const productDetails = {
+        id: "premium-cotton-tee",
+        name: "Premium Cotton Tee",
+        price: 45.0,
+        image:
+          "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=600",
+      };
 
-         // Set product configuration parameters
-        const productDetails = {
-            id: "premium-cotton-tee",
-            name: "Premium Cotton Tee",
-            price: 45.00,
-            image: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=600"
-        };
+      let currentSize = "M";
+      let currentColor = "Natural";
+      let quantity = 1;
 
-        let currentSize = 'M';
-        let currentColor = 'Natural';
-        let quantity = 1;
+      function selectSize(btn) {
+        document.querySelectorAll(".option-btn").forEach((b) => {
+          if (["M", "L"].includes(b.textContent)) b.classList.remove("active");
+        });
+        btn.classList.add("active");
+        currentSize = btn.textContent;
+        updateSelection();
+      }
 
-        function selectSize(btn) {
-            document.querySelectorAll('.option-btn').forEach(b => {
-                if (['M','L'].includes(b.textContent)) b.classList.remove('active');
-            });
-            btn.classList.add('active');
-            currentSize = btn.textContent;
-            updateSelection();
-        }
+      function selectColor(btn) {
+        document.querySelectorAll(".option-btn").forEach((b) => {
+          if (["Natural", "Black"].includes(b.textContent))
+            color = b.textContent; // safe check fallback
+          if (["Natural", "Black"].includes(b.textContent))
+            b.classList.remove("active");
+        });
+        btn.classList.add("active");
+        currentColor = btn.textContent;
+        updateSelection();
+      }
 
-        function selectColor(btn) {
-            document.querySelectorAll('.option-btn').forEach(b => {
-                if (['Natural','Black'].includes(b.textContent)) color = b.textContent; // safe check fallback
-                if (['Natural','Black'].includes(b.textContent)) b.classList.remove('active');
-            });
-            btn.classList.add('active');
-            currentColor = btn.textContent;
-            updateSelection();
-        }
-
-        function updateSelection() {
-            document.getElementById('selection').innerHTML = `
+      function updateSelection() {
+        document.getElementById("selection").innerHTML = `
                 Size: <span class="text-gray-700 font-medium">${currentSize}</span> | 
                 Color: <span class="text-gray-700 font-medium">${currentColor}</span>
             `;
+      }
+
+      function changeQuantity(btn) {
+        if (btn.textContent === "+") {
+          quantity++;
+        } else if (quantity > 1) {
+          quantity--;
+        }
+        document.getElementById("quantity").textContent = quantity;
+      }
+
+      function updateHeaderCount() {
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        let totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+        const badge = document.getElementById("bag-count");
+
+        if (totalItems > 0) {
+          badge.textContent = totalItems;
+          badge.classList.remove("hidden");
+        } else {
+          badge.classList.add("hidden");
+        }
+      }
+
+      function addToCart() {
+        // Get current cart array from localStorage
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+        // Check if the item variant already exists in cart
+        let existingItemIndex = cart.findIndex(
+          (item) =>
+            item.id === productDetails.id &&
+            item.size === currentSize &&
+            item.color === currentColor,
+        );
+
+        if (existingItemIndex > -1) {
+          // Update quantity if found
+          cart[existingItemIndex].quantity += quantity;
+        } else {
+          // Add new variant block if it's completely new combination
+          cart.push({
+            id: productDetails.id,
+            name: productDetails.name,
+            price: productDetails.price,
+            image: productDetails.image,
+            size: currentSize,
+            color: currentColor,
+            quantity: quantity,
+          });
         }
 
-        function changeQuantity(btn) {
-            if (btn.textContent === '+') {
-                quantity++;
-            } else if (quantity > 1) {
-                quantity--;
-            }
-            document.getElementById('quantity').textContent = quantity;
-        }
+        // Save updated cart back to localStorage
+        localStorage.setItem("cart", JSON.stringify(cart));
 
-        function updateHeaderCount() {
-            let cart = JSON.parse(localStorage.getItem('cart')) || [];
-            let totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-            const badge = document.getElementById("bag-count");
-            
-            if(totalItems > 0) {
-                badge.textContent = totalItems;
-                badge.classList.remove("hidden");
-            } else {
-                badge.classList.add("hidden");
-            }
-        }
-
-        function addToCart() {
-            // Get current cart array from localStorage
-            let cart = JSON.parse(localStorage.getItem('cart')) || [];
-
-            // Check if the item variant already exists in cart
-            let existingItemIndex = cart.findIndex(item => 
-                item.id === productDetails.id && 
-                item.size === currentSize && 
-                item.color === currentColor
-            );
-
-            if (existingItemIndex > -1) {
-                // Update quantity if found
-                cart[existingItemIndex].quantity += quantity;
-            } else {
-                // Add new variant block if it's completely new combination
-                cart.push({
-                    id: productDetails.id,
-                    name: productDetails.name,
-                    price: productDetails.price,
-                    image: productDetails.image,
-                    size: currentSize,
-                    color: currentColor,
-                    quantity: quantity
-                });
-            }
-
-            // Save updated cart back to localStorage
-            localStorage.setItem('cart', JSON.stringify(cart));
-            
-            // Visual feedback
-            updateHeaderCount();
-            const badge = document.getElementById("bag-count");
-            badge.classList.add("scale-125");
-            setTimeout(() => badge.classList.remove("scale-125"), 200);
-
-            alert(`✅ ${quantity} item${quantity > 1 ? 's' : ''} added to cart successfully!`);
-            
-            // Reset local quantity counter view state back to 1
-            quantity = 1;
-            document.getElementById('quantity').textContent = 1;
-        }
-
-        // Initialize view header count on page load
+        // Visual feedback
         updateHeaderCount();
+        const badge = document.getElementById("bag-count");
+        badge.classList.add("scale-125");
+        setTimeout(() => badge.classList.remove("scale-125"), 200);
+
+        alert(
+          `✅ ${quantity} item${quantity > 1 ? "s" : ""} added to cart successfully!`,
+        );
+
+        // Reset local quantity counter view state back to 1
+        quantity = 1;
+        document.getElementById("quantity").textContent = 1;
+      }
+
+      // Initialize view header count on page load
+      updateHeaderCount();
     </script>
-</body>
+  </body>
 </html>

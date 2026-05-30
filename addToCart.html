@@ -130,7 +130,7 @@
                     id="product-price"
                     class="font-semibold text-2xl lg:text-3xl text-slate-900 tracking-tight"
                   >
-                    $0.00
+                    RM 0.00
                   </p>
                 </div>
 
@@ -299,7 +299,7 @@
             imgEl.alt = selectedProduct.name;
           }
           if (priceEl) {
-            priceEl.textContent = `$${selectedProduct.price.toFixed(2)}`;
+            priceEl.textContent = `RM ${selectedProduct.price.toFixed(2)}`;
           }
 
           const nameParts = selectedProduct.name.split(" ");

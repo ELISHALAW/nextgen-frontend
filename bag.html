@@ -386,7 +386,7 @@
         // Build items breakdown
         let itemsBreakdownText = "";
         globalCart.forEach((item, i) => {
-          itemsBreakdownText += `${i + 1}. ${item.name} (Size: ${item.size}, Color: ${item.color}) × ${item.quantity} - $${(item.price * item.quantity).toFixed(2)}\n`;
+          itemsBreakdownText += `${i + 1}. ${item.name} (Size: ${item.size}, Color: ${item.color}) × ${item.quantity} - RM ${(item.price * item.quantity).toFixed(2)}\n`;
         });
 
         const formData = {
