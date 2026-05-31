@@ -1,0 +1,346 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product Details | Gimas Premium</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" type="image/png" href="images/white.png" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap");
+      body {
+        font-family: "Plus Jakarta Sans", sans-serif;
+      }
+      /* Clean number inputs */
+      input[type="number"]::-webkit-inner-spin-button,
+      input[type="number"]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body
+    class="bg-[#F8FAFC] text-slate-900 min-h-screen flex flex-col antialiased"
+  >
+    <header class="bg-[#1A1A1A] shadow-lg sticky top-0 z-40 py-4 md:py-5">
+      <nav
+        class="max-w-7xl mx-auto px-4 md:px-6 flex justify-between items-center"
+      >
+        <a href="./index.html" class="flex items-center gap-3">
+          <img
+            src="images/white.png"
+            class="h-9 md:h-10 w-auto object-contain"
+            alt="Gimas Premium logo"
+          />
+        </a>
+
+        <div class="flex items-center gap-6 md:gap-8">
+          <a
+            href="./index.html"
+            class="text-white hover:text-amber-500 transition-colors font-semibold text-sm tracking-widest flex items-center gap-2"
+          >
+            <i class="fa-solid fa-arrow-left text-xs"></i>
+            <span>BACK TO COLLECTION</span>
+          </a>
+
+          <a
+            href="bag.html"
+            class="relative flex items-center gap-2 text-white hover:text-amber-500 transition-colors font-medium group"
+          >
+            <i class="fa-solid fa-bag-shopping text-2xl"></i>
+            <span class="hidden md:inline">Bag</span>
+            <span
+              id="bag-count"
+              class="absolute -top-2 -right-2 bg-amber-500 text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full border-2 border-[#1A1A1A] hidden"
+              >0</span
+            >
+          </a>
+        </div>
+      </nav>
+    </header>
+
+    <main class="flex-grow max-w-7xl mx-auto px-4 md:px-6 py-8 md:py-12 w-full">
+      <nav
+        class="flex text-xs md:text-sm text-slate-400 gap-2 items-center mb-8"
+      >
+        <a href="./index.html" class="hover:text-slate-900 transition-colors"
+          >Home</a
+        >
+        <i class="fa-solid fa-chevron-right text-[10px]"></i>
+        <span class="text-slate-400">Shop</span>
+        <i class="fa-solid fa-chevron-right text-[10px]"></i>
+        <span id="breadcrumb-current" class="text-slate-900 font-medium"
+          >Shirring Volume</span
+        >
+      </nav>
+
+      <div
+        class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 bg-white rounded-3xl p-4 md:p-8 shadow-sm border border-slate-100 items-stretch"
+      >
+        <div class="lg:col-span-6 flex flex-col order-first">
+          <div
+            class="relative flex-grow w-full bg-slate-50 rounded-2xl overflow-hidden group shadow-inner min-h-[350px] lg:min-h-0 aspect-[4/3] lg:aspect-auto"
+          >
+            <img
+              id="main-product-image"
+              src="images/postcard6.png"
+              alt="Main Product view"
+              class="w-full h-full object-cover object-top transition-all duration-500 ease-out absolute inset-0"
+            />
+
+            <button
+              onclick="navigateSlider(-1)"
+              aria-label="Previous image"
+              class="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-md hover:bg-white text-slate-800 transition-all z-10"
+            >
+              <i class="fa-solid fa-chevron-left text-sm"></i>
+            </button>
+            <button
+              onclick="navigateSlider(1)"
+              aria-label="Next image"
+              class="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-md hover:bg-white text-slate-800 transition-all z-10"
+            >
+              <i class="fa-solid fa-chevron-right text-sm"></i>
+            </button>
+
+            <span
+              class="absolute top-4 left-4 bg-slate-900 text-white text-xs font-bold px-3 py-1.5 rounded-full tracking-wider uppercase z-10"
+              >Premium</span
+            >
+          </div>
+        </div>
+
+        <div
+          class="lg:col-span-6 pt-2 flex flex-col justify-between gap-6 lg:order-last"
+        >
+          <div class="flex flex-col gap-4">
+            <div>
+              <h1
+                id="product-title"
+                class="text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight"
+              >
+                Shirring Volume
+              </h1>
+              <p
+                id="product-subtitle"
+                class="text-slate-400 text-sm mt-1.5 font-medium"
+              >
+                Gingham Sleeve Essential Edition
+              </p>
+            </div>
+
+            <div class="p-4 bg-slate-50 rounded-2xl flex items-baseline gap-3">
+              <span
+                id="product-price"
+                class="text-3xl font-extrabold text-slate-900"
+                >RM 9.90</span
+              >
+              <span
+                class="text-sm text-emerald-600 font-bold bg-emerald-50 px-2.5 py-1 rounded-lg"
+                >In Stock</span
+              >
+            </div>
+
+            <p class="text-slate-600 text-sm leading-relaxed">
+              Crafted from ultra-premium breathable tailored fibers structured
+              to sit flawlessly on any silhouette. Designed with functional
+              modern architecture to seamlessly carry you from daytime styling
+              to luxury night engagements.
+            </p>
+
+            <hr class="border-slate-100" />
+          </div>
+
+          <div class="flex flex-col gap-5 flex-grow justify-center">
+            <div>
+              <label
+                class="text-xs font-bold uppercase tracking-wider text-slate-500 block mb-2"
+                >Quantity</label
+              >
+              <div
+                class="flex items-center border border-slate-200 bg-slate-50 w-32 rounded-xl overflow-hidden p-1"
+              >
+                <button
+                  onclick="adjustQuantityValue(-1)"
+                  class="w-10 h-10 flex items-center justify-center font-bold text-slate-600 hover:bg-white rounded-lg transition-all"
+                >
+                  -
+                </button>
+                <input
+                  type="number"
+                  id="item-quantity-counter"
+                  value="1"
+                  min="1"
+                  class="w-10 text-center bg-transparent font-bold text-sm focus:outline-none"
+                  readonly
+                />
+                <button
+                  onclick="adjustQuantityValue(1)"
+                  class="w-10 h-10 flex items-center justify-center font-bold text-slate-600 hover:bg-white rounded-lg transition-all"
+                >
+                  +
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="pt-2">
+            <button
+              onclick="executeMainCartAddition(this)"
+              class="w-full py-4 bg-slate-900 text-white rounded-2xl font-bold text-sm tracking-wide hover:bg-amber-500 hover:text-slate-900 transition-all duration-300 shadow-md flex items-center justify-center gap-3"
+            >
+              <i class="fa-solid fa-bag-shopping"></i>
+              <span>Add to Shopping Bag</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer
+      class="bg-[#1A1A1A] text-slate-400 text-xs py-8 mt-24 border-t border-slate-800"
+    >
+      <div
+        class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4"
+      >
+        <p>&copy; 2026 Gimas Premium Store. All rights reserved.</p>
+        <div class="flex gap-6">
+          <a href="#" class="hover:text-white transition-colors"
+            >Privacy Policy</a
+          >
+          <a href="#" class="hover:text-white transition-colors"
+            >Terms of Service</a
+          >
+          <a href="#" class="hover:text-white transition-colors"
+            >Contact Support</a
+          >
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+      let chosenSelectedSize = "M";
+      let chosenSelectedColor = "Black";
+
+      const sliderImages = [
+        "images/postcard6.png",
+        "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=600&auto=format&fit=crop&q=80",
+        "https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=600&auto=format&fit=crop&q=80",
+        "https://images.unsplash.com/photo-1554412933-514a83d2f3c8?w=600&auto=format&fit=crop&q=80",
+      ];
+      let currentSliderIndex = 0;
+
+      window.onload = function () {
+        syncBagBadgeCount();
+      };
+
+      function syncBagBadgeCount() {
+        const count = cart.reduce((acc, item) => acc + item.quantity, 0);
+        const badge = document.getElementById("bag-count");
+        if (badge) {
+          badge.textContent = count;
+          badge.classList.toggle("hidden", count === 0);
+        }
+      }
+
+      function updateSliderDisplay() {
+        document.getElementById("main-product-image").src =
+          sliderImages[currentSliderIndex];
+      }
+
+      function navigateSlider(directionInt) {
+        currentSliderIndex += directionInt;
+        if (currentSliderIndex >= sliderImages.length) currentSliderIndex = 0;
+        if (currentSliderIndex < 0)
+          currentSliderIndex = sliderImages.length - 1;
+        updateSliderDisplay();
+      }
+
+      function selectSizeOption(element, valueStr) {
+        document.querySelectorAll(".size-btn").forEach((btn) => {
+          btn.classList.remove(
+            "border-slate-900",
+            "bg-slate-900",
+            "text-white",
+          );
+          btn.classList.add(
+            "border-slate-200",
+            "bg-slate-50",
+            "text-slate-800",
+          );
+        });
+        element.classList.replace("border-slate-200", "border-slate-900");
+        element.classList.replace("bg-slate-50", "bg-slate-900");
+        element.classList.replace("text-slate-800", "text-white");
+        chosenSelectedSize = valueStr;
+      }
+
+      function selectColorOption(element, valueStr) {
+        document.querySelectorAll(".color-btn").forEach((btn) => {
+          btn.classList.remove("border-slate-900", "bg-slate-200");
+          btn.classList.add("border-slate-200", "bg-slate-50");
+        });
+        element.classList.replace("border-slate-200", "border-slate-900");
+        element.classList.replace("bg-slate-50", "bg-slate-200");
+        chosenSelectedColor = valueStr;
+      }
+
+      function adjustQuantityValue(changeInt) {
+        const input = document.getElementById("item-quantity-counter");
+        let currentNum = parseInt(input.value) || 1;
+        currentNum += changeInt;
+        if (currentNum < 1) currentNum = 1;
+        input.value = currentNum;
+      }
+
+      function executeMainCartAddition(buttonRef) {
+        const nameText = document
+          .getElementById("product-title")
+          .textContent.trim();
+        const rawPrice = document
+          .getElementById("product-price")
+          .textContent.replace("RM", "")
+          .trim();
+        const priceNum = parseFloat(rawPrice) || 99.9;
+        const qtySelected =
+          parseInt(document.getElementById("item-quantity-counter").value) || 1;
+
+        const targetCartId = `${nameText}-${chosenSelectedSize}-${chosenSelectedColor}`;
+        const matchFound = cart.find((item) => item.cartId === targetCartId);
+
+        if (matchFound) {
+          matchFound.quantity += qtySelected;
+        } else {
+          cart.push({
+            cartId: targetCartId,
+            name: nameText,
+            size: chosenSelectedSize,
+            color: chosenSelectedColor,
+            price: priceNum,
+            quantity: qtySelected,
+            image: sliderImages[0],
+          });
+        }
+
+        localStorage.setItem("cart", JSON.stringify(cart));
+        syncBagBadgeCount();
+
+        const baselineHtml = buttonRef.innerHTML;
+        buttonRef.innerHTML = `<i class="fa-solid fa-circle-check"></i> <span>Successfully Added!</span>`;
+        const originalBg = buttonRef.style.backgroundColor;
+        buttonRef.style.backgroundColor = "#10b981";
+
+        setTimeout(() => {
+          buttonRef.innerHTML = baselineHtml;
+          buttonRef.style.backgroundColor = originalBg;
+        }, 1800);
+      }
+    </script>
+  </body>
+</html>
