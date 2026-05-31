@@ -3,80 +3,81 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Your Bag | Premium Fashion Store</title>
+    <title>Product Details | Premium Fashion Store</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="script.js"></script>
+    <link rel="icon" type="image/png" href="images/white.png" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
     />
     <style>
-      @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap");
+      @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap");
       body {
         font-family: "Plus Jakarta Sans", sans-serif;
       }
-
       .option-btn {
-        transition: all 0.2s ease;
+        transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
       }
       .option-btn.active {
-        background-color: #1a1a1a;
+        background-color: #0f172a;
         color: white;
-        border-color: #1a1a1a;
+        border-color: #0f172a;
+        box-shadow: 0 4px 14px 0 rgba(15, 23, 42, 0.2);
+        transform: translateY(-1px);
       }
-
-      .product-image-container {
-        aspect-ratio: 4 / 4.2;
+      .toast-enter {
+        transform: translateY(0);
+        opacity: 1;
       }
-
-      /* Quantity Button Improvements */
-      .qty-btn {
-        transition: all 0.2s ease;
+      .toast-exit {
+        transform: translateY(100%);
+        opacity: 0;
       }
-      .qty-btn:hover {
-        background-color: #f3f4f6;
+      /* Custom scrollbar for better overall look */
+      ::-webkit-scrollbar {
+        width: 8px;
       }
-      .qty-btn:active {
-        transform: scale(0.95);
+      ::-webkit-scrollbar-track {
+        background: #f1f5f9;
       }
-      .qty-decrease:disabled {
-        color: #d1d5db;
-        cursor: not-allowed;
+      ::-webkit-scrollbar-thumb {
+        background: #cbd5e1;
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #94a3b8;
       }
     </style>
   </head>
-  <body class="bg-gray-50 text-gray-900 min-h-screen flex flex-col">
-    <header class="bg-[#1A1A1A] shadow-lg sticky top-0 z-40 py-4 md:py-5">
-      <nav
-        class="max-w-7xl mx-auto px-4 md:px-6 flex justify-between items-center"
-      >
+  <body
+    class="bg-[#F4F5F7] text-slate-900 min-h-screen flex flex-col selection:bg-slate-900 selection:text-white"
+  >
+    <header class="bg-[#1A1A1A] shadow-md sticky top-0 z-40 py-4 md:py-5">
+      <nav class="max-w-7xl mx-auto px-6 flex justify-between items-center">
         <a href="./index.html" class="flex items-center gap-3 group">
           <img
             id="nav-logo"
             src="images/white.png"
-            class="h-14 w-auto object-contain transition-transform duration-500 group-hover:scale-105"
-            alt="logo"
+            class="h-10 w-auto object-contain"
+            alt="Logo"
+            onerror="this.src = 'https://via.placeholder.com/150x50?text=LOGO'"
           />
         </a>
-
-        <div class="flex items-center gap-6 md:gap-8">
+        <div class="flex items-center gap-8">
           <a
             href="index.html"
-            class="text-white hover:text-amber-500 transition-colors font-semibold text-sm tracking-widest flex items-center gap-2"
+            class="text-slate-300 hover:text-white font-semibold text-xs tracking-widest uppercase transition-colors"
           >
-            <i class="fa-solid fa-arrow-left text-xs"></i>
-            <span class="hidden sm:inline">BACK TO HOME</span>
+            <i class="fa-solid fa-arrow-left mr-2"></i> Back to Home
           </a>
-
           <a
             href="bag.html"
-            class="relative flex items-center gap-2 text-white hover:text-amber-500 transition-colors font-medium group"
+            class="relative text-white hover:text-slate-300 transition-colors"
           >
-            <i class="fa-solid fa-bag-shopping text-2xl"></i>
-            <span class="hidden md:inline">Bag</span>
+            <i class="fa-solid fa-bag-shopping text-xl"></i>
             <span
               id="bag-count"
-              class="absolute -top-2 -right-2 bg-amber-500 text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full border-2 border-[#1A1A1A] hidden"
+              class="absolute -top-2 -right-2.5 bg-amber-500 text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full hidden"
               >0</span
             >
           </a>
@@ -85,177 +86,157 @@
     </header>
 
     <main
-      class="flex-1 w-full px-4 md:px-6 py-8 md:py-16 flex items-center justify-center"
+      class="flex-1 w-full px-4 py-12 md:py-16 flex items-center justify-center"
     >
-      <div class="max-w-5xl w-full mx-auto">
+      <div
+        class="max-w-6xl w-full bg-white rounded-[2rem] shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-100 p-6 sm:p-10 md:p-14"
+      >
         <div
-          class="bg-white rounded-3xl shadow-[0_10px_40px_rgba(0,0,0,0.02)] border border-slate-100 overflow-hidden"
+          class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center"
         >
-          <div class="grid grid-cols-1 md:grid-cols-12">
+          <div
+            class="relative w-full aspect-square md:aspect-auto md:h-[600px] bg-gradient-to-br from-slate-50 to-slate-100 rounded-3xl flex items-center justify-center p-8 group overflow-hidden shadow-inner border border-slate-50"
+          >
             <div
-              class="md:col-span-6 p-6 lg:p-10 bg-[#FAFAFA] flex items-center justify-center border-b md:border-b-0 md:border-r border-slate-100/80"
-            >
+              class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-slate-200/50 rounded-full blur-3xl -z-10 group-hover:scale-110 transition-transform duration-700 ease-in-out"
+            ></div>
+
+            <img
+              id="product-img"
+              src=""
+              alt="Product Image"
+              class="w-full max-w-md object-contain mix-blend-multiply drop-shadow-2xl transition-transform duration-500 group-hover:scale-[1.03]"
+            />
+          </div>
+
+          <div class="flex flex-col justify-center max-w-lg">
+            <div class="mb-8">
               <div
-                class="w-full max-w-sm aspect-[4/5] rounded-2xl overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.03)] border border-slate-200/50 bg-white group"
+                class="inline-flex items-center gap-2 px-3 py-1 bg-slate-100 text-slate-600 rounded-full text-[10px] font-bold uppercase tracking-widest mb-6"
               >
-                <img
-                  id="product-img"
-                  src=""
-                  alt="Product Image"
-                  class="w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-102"
-                />
+                <i class="fa-solid fa-star text-amber-500 text-[8px]"></i>
+                Premium Design
               </div>
+              <h1
+                id="product-title"
+                class="font-extrabold text-4xl sm:text-5xl text-slate-900 tracking-tight leading-[1.1] mb-4 uppercase"
+              ></h1>
+              <p
+                id="product-price"
+                class="text-3xl font-semibold text-slate-900 flex items-center gap-2"
+              ></p>
             </div>
 
-            <div
-              class="md:col-span-6 p-8 lg:p-12 flex flex-col justify-between"
-            >
-              <div>
-                <div class="flex justify-between items-start gap-4 mb-6">
-                  <div>
-                    <span
-                      id="product-brand"
-                      class="text-[11px] font-bold tracking-[0.2em] text-slate-400 uppercase block mb-1"
-                    >
-                      NEXTGEN
-                    </span>
-                    <h1
-                      id="product-title"
-                      class="font-bold text-2xl lg:text-3xl tracking-tight text-slate-900 uppercase leading-tight"
-                    >
-                      STREETWEAR ITEM
-                    </h1>
-                  </div>
+            <hr class="border-slate-100 mb-8" />
+
+            <div class="space-y-8">
+              <div id="size-group">
+                <div class="flex justify-between items-end mb-4">
                   <p
-                    id="product-price"
-                    class="font-semibold text-2xl lg:text-3xl text-slate-900 tracking-tight"
+                    class="text-xs font-bold text-slate-500 uppercase tracking-widest"
                   >
-                    RM 0.00
+                    Select Size
                   </p>
-                </div>
-
-                <div class="w-full h-px bg-slate-100 my-6"></div>
-
-                <div class="space-y-6">
-                  <div id="size-group">
-                    <p
-                      class="text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-2.5"
-                    >
-                      Select Size
-                    </p>
-                    <div class="flex flex-wrap gap-2.5">
-                      <button
-                        type="button"
-                        data-size="M"
-                        class="size-option option-btn h-11 px-5 border border-slate-950 rounded-xl text-xs font-semibold bg-slate-950 text-white shadow-sm min-w-[56px] tracking-wider transition-all"
-                      >
-                        M
-                      </button>
-                      <button
-                        type="button"
-                        data-size="L"
-                        class="size-option option-btn h-11 px-5 border border-slate-200 rounded-xl text-xs font-semibold bg-white text-slate-800 hover:border-slate-400 shadow-sm min-w-[56px] tracking-wider transition-all"
-                      >
-                        L
-                      </button>
-                    </div>
-                  </div>
-
-                  <div id="color-group">
-                    <p
-                      class="text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-2.5"
-                    >
-                      Select Color
-                    </p>
-                    <div class="flex flex-wrap gap-2.5">
-                      <button
-                        type="button"
-                        data-color="Natural"
-                        class="color-option option-btn h-11 px-5 border border-slate-950 rounded-xl text-xs font-semibold bg-slate-950 text-white shadow-sm transition-all"
-                      >
-                        Natural
-                      </button>
-                      <button
-                        type="button"
-                        data-color="Black"
-                        class="color-option option-btn h-11 px-5 border border-slate-200 rounded-xl text-xs font-semibold bg-white text-slate-800 hover:border-slate-400 shadow-sm transition-all"
-                      >
-                        Black
-                      </button>
-                    </div>
-                  </div>
-                </div>
-
-                <div
-                  class="mt-6 bg-slate-50/80 border border-slate-100 rounded-xl px-4 py-2.5 inline-flex items-center gap-1.5 text-xs text-slate-500 font-medium"
-                >
-                  <span>Selected:</span>
-                  <span
-                    id="selection-summary"
-                    class="text-slate-900 font-semibold"
-                    >M / Natural</span
+                  <a
+                    href="#"
+                    class="text-[10px] font-semibold text-slate-400 hover:text-slate-900 underline underline-offset-4 transition-colors"
+                    >Size Guide</a
                   >
+                </div>
+                <div class="flex flex-wrap gap-3">
+                  <button
+                    type="button"
+                    data-size="M"
+                    class="size-option option-btn active h-12 w-16 border-2 rounded-xl bg-white border-slate-200 text-slate-700 text-sm font-bold hover:border-slate-400 focus:outline-none"
+                  >
+                    M
+                  </button>
+                  <button
+                    type="button"
+                    data-size="L"
+                    class="size-option option-btn h-12 w-16 border-2 rounded-xl bg-white border-slate-200 text-slate-700 text-sm font-bold hover:border-slate-400 focus:outline-none"
+                  >
+                    L
+                  </button>
                 </div>
               </div>
 
-              <div class="mt-8 pt-6 border-t border-slate-100/80 space-y-5">
-                <div>
-                  <p
-                    class="text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-2"
+              <div id="color-group">
+                <p
+                  class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-4"
+                >
+                  Select Color
+                </p>
+                <div class="flex flex-wrap gap-3">
+                  <button
+                    type="button"
+                    data-color="Natural"
+                    class="color-option option-btn active h-12 px-8 border-2 rounded-xl bg-white border-slate-200 text-slate-700 text-sm font-bold hover:border-slate-400 focus:outline-none"
                   >
-                    Quantity
-                  </p>
-                  <div
-                    class="flex items-center justify-between border border-slate-200 rounded-xl overflow-hidden bg-white shadow-sm h-12 w-full sm:w-32 transition-all focus-within:border-slate-400"
+                    Natural
+                  </button>
+                  <button
+                    type="button"
+                    data-color="Black"
+                    class="color-option option-btn h-12 px-8 border-2 rounded-xl bg-white border-slate-200 text-slate-700 text-sm font-bold hover:border-slate-400 focus:outline-none"
                   >
-                    <button
-                      type="button"
-                      id="btn-decrease"
-                      disabled
-                      class="w-10 h-full flex items-center justify-center text-slate-400 hover:bg-slate-50 active:bg-slate-100/80 disabled:opacity-25 disabled:hover:bg-transparent transition-colors"
-                      aria-label="Decrease quantity"
-                    >
-                      <i class="fa-solid fa-minus text-[10px]"></i>
-                    </button>
-                    <span
-                      id="quantity-display"
-                      class="flex-1 text-center font-bold text-xs text-slate-900 select-none"
-                      >1</span
-                    >
-                    <button
-                      type="button"
-                      id="btn-increase"
-                      class="w-10 h-full flex items-center justify-center text-slate-400 hover:bg-slate-50 active:bg-slate-100/80 transition-colors"
-                      aria-label="Increase quantity"
-                    >
-                      <i class="fa-solid fa-plus text-[10px]"></i>
-                    </button>
-                  </div>
+                    Black
+                  </button>
                 </div>
+              </div>
 
+              <div>
+                <p
+                  class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-4"
+                >
+                  Quantity
+                </p>
+                <div
+                  class="flex items-center border-2 border-slate-200 w-fit rounded-xl overflow-hidden bg-white shadow-sm"
+                >
+                  <button
+                    id="qty-minus"
+                    class="w-12 h-12 flex items-center justify-center hover:bg-slate-50 hover:text-slate-900 transition-colors text-slate-500 focus:outline-none"
+                  >
+                    <i class="fa-solid fa-minus text-xs"></i>
+                  </button>
+                  <span
+                    id="qty-val"
+                    class="w-12 text-center font-bold text-slate-900 text-base select-none"
+                    >1</span
+                  >
+                  <button
+                    id="qty-plus"
+                    class="w-12 h-12 flex items-center justify-center hover:bg-slate-50 hover:text-slate-900 transition-colors text-slate-500 focus:outline-none"
+                  >
+                    <i class="fa-solid fa-plus text-xs"></i>
+                  </button>
+                </div>
+              </div>
+
+              <div class="pt-4 mt-8 border-t border-slate-100">
                 <button
-                  type="button"
                   id="btn-add-to-cart"
-                  class="w-full bg-slate-950 hover:bg-slate-850 text-white font-semibold text-xs tracking-wider uppercase h-12 rounded-xl transition-all active:scale-[0.99] shadow-sm flex items-center justify-center gap-2"
+                  class="w-full bg-slate-900 text-white font-bold py-5 rounded-2xl text-sm tracking-widest hover:bg-slate-800 hover:shadow-[0_8px_20px_rgba(15,23,42,0.25)] hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98] transition-all duration-300 flex justify-center items-center gap-3 uppercase group"
                 >
                   <i
-                    class="fa-solid fa-basket-shopping text-[11px] opacity-90"
+                    class="fa-solid fa-bag-shopping text-base group-hover:scale-110 transition-transform"
                   ></i>
-                  Confirm Variant & Add
+                  Confirm Variant & Add to Bag
                 </button>
 
                 <div
-                  class="flex items-center gap-2 text-[11px] font-semibold text-emerald-700 bg-emerald-50/60 border border-emerald-100/50 w-fit px-3 py-1.5 rounded-lg"
+                  class="mt-6 flex items-center justify-center gap-2 text-emerald-600 bg-emerald-50/50 py-2.5 px-4 rounded-xl text-xs font-bold tracking-wide"
                 >
-                  <span class="relative flex h-1.5 w-1.5">
+                  <span class="relative flex h-2.5 w-2.5">
                     <span
                       class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"
                     ></span>
                     <span
-                      class="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-500"
+                      class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"
                     ></span>
                   </span>
-                  In Stock & Ready to Ship
+                  IN STOCK & READY TO SHIP
                 </div>
               </div>
             </div>
@@ -264,137 +245,153 @@
       </div>
     </main>
 
+    <div
+      id="toast"
+      class="fixed bottom-6 right-6 bg-slate-900 text-white p-4 rounded-2xl shadow-[0_10px_40px_rgba(0,0,0,0.2)] flex items-center gap-4 z-50 transition-all duration-300 toast-exit pointer-events-none min-w-[280px]"
+    >
+      <div
+        class="bg-emerald-500/20 text-emerald-400 rounded-full w-10 h-10 flex items-center justify-center shrink-0"
+      >
+        <i class="fa-solid fa-check"></i>
+      </div>
+      <div>
+        <p class="font-bold text-sm">Added to Bag</p>
+        <p id="toast-msg" class="text-xs text-slate-400 mt-1 line-clamp-1"></p>
+      </div>
+    </div>
+
     <script>
-      // Safe isolated script execution scope environment
       document.addEventListener("DOMContentLoaded", () => {
         const selectedProduct = JSON.parse(
           localStorage.getItem("selectedProduct"),
         );
-
         if (!selectedProduct) {
-          alert("No item selected! Returning to showroom gallery list.");
           window.location.href = "index.html";
           return;
         }
 
-        let currentSize = "M";
-        let currentColor = "Natural";
-        let quantity = 1;
+        let currentSize = "M",
+          currentColor = "Natural",
+          quantity = 1;
 
-        // Cache DOM Elements safely
-        const qtyDisplay = document.getElementById("quantity-display");
-        const decreaseBtn = document.getElementById("btn-decrease");
-        const increaseBtn = document.getElementById("btn-increase");
-        const addToCartBtn = document.getElementById("btn-add-to-cart");
-        const summaryEl = document.getElementById("selection-summary");
+        // --- UI Initialization ---
+        document.getElementById("product-img").src = selectedProduct.image;
+        document.getElementById("product-title").textContent =
+          selectedProduct.name;
+        document.getElementById("product-price").textContent =
+          `RM ${selectedProduct.price.toFixed(2)}`;
 
-        function renderPageData() {
-          const imgEl = document.getElementById("product-img");
-          const priceEl = document.getElementById("product-price");
-          const brandEl = document.getElementById("product-brand");
-          const titleEl = document.getElementById("product-title");
+        // --- NEW SIZE LOGIC ---
+        // By default, we hide the size selector to prevent bugs with mismatched dummy data.
+        let productHasSize = false;
+        const productName = (selectedProduct.name || "").toLowerCase();
 
-          if (imgEl) {
-            imgEl.src = selectedProduct.image;
-            imgEl.alt = selectedProduct.name;
-          }
-          if (priceEl) {
-            priceEl.textContent = `RM ${selectedProduct.price.toFixed(2)}`;
-          }
+        // Only show size if your database explicitly flags it as clothing,
+        // OR if the title has "tee" or "shirt".
+        if (
+          selectedProduct.isClothing === true ||
+          productName.includes("tee") ||
+          productName.includes("shirt")
+        ) {
+          productHasSize = true;
+        }
 
-          const nameParts = selectedProduct.name.split(" ");
-          if (nameParts.length > 1) {
-            if (brandEl) brandEl.textContent = nameParts[0];
-            if (titleEl) titleEl.textContent = nameParts.slice(1).join(" ");
+        if (!productHasSize) {
+          document.getElementById("size-group").classList.add("hidden");
+          currentSize = null; // Clear size value so it doesn't get added to the cart data
+        } else {
+          document.getElementById("size-group").classList.remove("hidden");
+        }
+
+        // Color will always show
+        document.getElementById("color-group").classList.remove("hidden");
+
+        // --- Bag Counter Logic ---
+        function updateBagCount() {
+          const cart = JSON.parse(localStorage.getItem("cart")) || [];
+          const totalQty = cart.reduce((sum, item) => sum + item.quantity, 0);
+          const bagCountEl = document.getElementById("bag-count");
+
+          if (totalQty > 0) {
+            bagCountEl.textContent = totalQty;
+            bagCountEl.classList.remove("hidden");
           } else {
-            if (brandEl) brandEl.textContent = "DESIGN";
-            if (titleEl) titleEl.textContent = selectedProduct.name;
+            bagCountEl.classList.add("hidden");
           }
         }
+        updateBagCount();
 
-        // Modern styling visual toggle logic handler
-        function updateButtonVisuals(buttonsList, selectedButton) {
-          buttonsList.forEach((btn) => {
-            btn.className =
-              "option-btn h-11 px-5 border border-slate-200 rounded-xl text-xs font-semibold bg-white text-slate-800 hover:border-slate-400 shadow-sm min-w-[56px] tracking-wider transition-all";
-          });
-          selectedButton.className =
-            "option-btn h-11 px-5 border border-slate-950 rounded-xl text-xs font-semibold bg-slate-950 text-white shadow-sm min-w-[56px] tracking-wider transition-all";
-        }
-
-        // Attach Event Listeners to Sizes
-        const sizeButtons = document.querySelectorAll(".size-option");
-        sizeButtons.forEach((button) => {
-          button.addEventListener("click", (e) => {
-            updateButtonVisuals(sizeButtons, e.currentTarget);
-            currentSize = e.currentTarget.getAttribute("data-size");
-            updateSelectionSummary();
-          });
+        // --- Quantity Logic ---
+        const qtyValEl = document.getElementById("qty-val");
+        document.getElementById("qty-plus").addEventListener("click", () => {
+          quantity++;
+          qtyValEl.textContent = quantity;
         });
-
-        // Attach Event Listeners to Colors
-        const colorButtons = document.querySelectorAll(".color-option");
-        colorButtons.forEach((button) => {
-          button.addEventListener("click", (e) => {
-            updateButtonVisuals(colorButtons, e.currentTarget);
-            currentColor = e.currentTarget.getAttribute("data-color");
-            updateSelectionSummary();
-          });
-        });
-
-        function updateSelectionSummary() {
-          if (summaryEl) {
-            summaryEl.textContent = `${currentSize} / ${currentColor}`;
+        document.getElementById("qty-minus").addEventListener("click", () => {
+          if (quantity > 1) {
+            quantity--;
+            qtyValEl.textContent = quantity;
           }
+        });
+
+        // --- Variant Selection Logic ---
+        function handleSelection(buttons, type, value, el) {
+          buttons.forEach((btn) => btn.classList.remove("active"));
+          el.classList.add("active");
+          if (type === "size") currentSize = value;
+          if (type === "color") currentColor = value;
         }
 
-        // Quantity Handlers via Event Listeners
-        if (increaseBtn) {
-          increaseBtn.addEventListener("click", () => {
-            quantity++;
-            qtyDisplay.textContent = quantity;
-            decreaseBtn.disabled = false;
-          });
-        }
-
-        if (decreaseBtn) {
-          decreaseBtn.addEventListener("click", () => {
-            if (quantity > 1) {
-              quantity--;
-              qtyDisplay.textContent = quantity;
-              if (quantity === 1) {
-                decreaseBtn.disabled = true;
-              }
-            }
-          });
-        }
-
-        function updateHeaderCount() {
-          // Named uniquely to completely prevent global scope namespace collision crashes
-          const uniquePageCartItems =
-            JSON.parse(localStorage.getItem("cart")) || [];
-          const totalItems = uniquePageCartItems.reduce(
-            (sum, item) => sum + item.quantity,
-            0,
+        document
+          .querySelectorAll(".size-option")
+          .forEach((btn) =>
+            btn.addEventListener("click", (e) =>
+              handleSelection(
+                document.querySelectorAll(".size-option"),
+                "size",
+                e.target.dataset.size,
+                e.currentTarget,
+              ),
+            ),
           );
-          const badge = document.getElementById("bag-count");
 
-          if (badge) {
-            if (totalItems > 0) {
-              badge.textContent = totalItems;
-              badge.classList.remove("hidden");
-            } else {
-              badge.classList.add("hidden");
-            }
-          }
+        document
+          .querySelectorAll(".color-option")
+          .forEach((btn) =>
+            btn.addEventListener("click", (e) =>
+              handleSelection(
+                document.querySelectorAll(".color-option"),
+                "color",
+                e.target.dataset.color,
+                e.currentTarget,
+              ),
+            ),
+          );
+
+        // --- Toast Notification Logic ---
+        let toastTimeout;
+        function showToast(productName, qty) {
+          const toast = document.getElementById("toast");
+          document.getElementById("toast-msg").textContent =
+            `${qty}x ${productName}`;
+
+          toast.classList.remove("toast-exit");
+          toast.classList.add("toast-enter");
+
+          clearTimeout(toastTimeout);
+          toastTimeout = setTimeout(() => {
+            toast.classList.remove("toast-enter");
+            toast.classList.add("toast-exit");
+          }, 3000);
         }
 
-        if (addToCartBtn) {
-          addToCartBtn.addEventListener("click", () => {
-            const uniquePageCartItems =
-              JSON.parse(localStorage.getItem("cart")) || [];
+        // --- Add to Cart Action ---
+        document
+          .getElementById("btn-add-to-cart")
+          .addEventListener("click", () => {
+            const cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-            const existingItemIndex = uniquePageCartItems.findIndex(
+            const existingItemIndex = cart.findIndex(
               (item) =>
                 item.id === selectedProduct.id &&
                 item.size === currentSize &&
@@ -402,32 +399,20 @@
             );
 
             if (existingItemIndex > -1) {
-              uniquePageCartItems[existingItemIndex].quantity += quantity;
+              cart[existingItemIndex].quantity += quantity;
             } else {
-              uniquePageCartItems.push({
-                id: selectedProduct.id,
-                name: selectedProduct.name,
-                price: selectedProduct.price,
-                image: selectedProduct.image,
+              cart.push({
+                ...selectedProduct,
                 size: currentSize,
                 color: currentColor,
                 quantity: quantity,
               });
             }
 
-            localStorage.setItem("cart", JSON.stringify(uniquePageCartItems));
-            updateHeaderCount();
-
-            alert(
-              `Added ${quantity}x ${selectedProduct.name} (${currentSize} / ${currentColor}) to your bag!`,
-            );
+            localStorage.setItem("cart", JSON.stringify(cart));
+            updateBagCount();
+            showToast(selectedProduct.name, quantity);
           });
-        }
-
-        // Run Initializations
-        renderPageData();
-        updateHeaderCount();
-        updateSelectionSummary();
       });
     </script>
   </body>
