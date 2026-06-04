@@ -77,36 +77,90 @@
           <div class="flex flex-col md:flex-row">
             <div class="md:w-1/2 relative bg-slate-50 overflow-hidden group">
               <div
-                class="absolute top-5 left-5 z-10 bg-rose-50 text-red-600 px-4 py-1.5 rounded-full font-bold text-xs uppercase tracking-wider border border-rose-100 shadow-sm"
+                class="absolute top-5 left-5 z-20 bg-rose-50 text-red-600 px-4 py-1.5 rounded-full font-bold text-xs uppercase tracking-wider border border-rose-100 shadow-sm"
               >
                 20% Limited Offer
               </div>
+
               <div
-                class="product-image-container w-full h-full overflow-hidden"
+                class="product-image-container w-full h-full relative overflow-hidden"
               >
-                <img
-                  src="https://images.unsplash.com/photo-1576566588028-4147f3842f27?q=80&w=600"
-                  class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                  alt="Heavyweight Oversized Essential Tee"
-                />
+                <div
+                  id="slider-track"
+                  class="flex w-full h-full transition-transform duration-500 ease-out"
+                >
+                  <img
+                    src="images/image.png?q=80&w=600"
+                    class="w-full h-full object-cover shrink-0 cursor-grab active:cursor-grabbing"
+                    alt="Heavyweight NGU - Oversized T-Shirt - Front"
+                  />
+                  <img
+                    src="images/images1.jpg?q=80&w=600"
+                    class="w-full h-full object-cover shrink-0 cursor-grab active:cursor-grabbing"
+                    alt="Heavyweight NGU - Oversized T-Shirt - Back"
+                  />
+                  <img
+                    src="images/black1.jpg?q=80&w=600"
+                    class="w-full h-full object-cover shrink-0 cursor-grab active:cursor-grabbing"
+                    alt="Heavyweight NGU - Oversized T-Shirt - Detail"
+                  />
+                  <img
+                    src="images/black2.jpg?q=80&w=600"
+                    class="w-full h-full object-cover shrink-0 cursor-grab active:cursor-grabbing"
+                    alt="Heavyweight NGU - Oversized T-Shirt - Detail"
+                  />
+                </div>
+
+                <button
+                  onclick="moveSlide(-1)"
+                  class="absolute left-4 top-1/2 -translate-y-1/2 h-10 w-10 bg-white/90 backdrop-blur-sm border border-slate-200 rounded-full flex items-center justify-center text-slate-800 shadow-sm opacity-0 group-hover:opacity-100 transition-all hover:scale-105 active:scale-95 z-10"
+                >
+                  <i
+                    class="fa-solid fa-chevron-left text-sm pointer-events-none"
+                  ></i>
+                </button>
+                <button
+                  onclick="moveSlide(1)"
+                  class="absolute right-4 top-1/2 -translate-y-1/2 h-10 w-10 bg-white/90 backdrop-blur-sm border border-slate-200 rounded-full flex items-center justify-center text-slate-800 shadow-sm opacity-0 group-hover:opacity-100 transition-all hover:scale-105 active:scale-95 z-10"
+                >
+                  <i
+                    class="fa-solid fa-chevron-right text-sm pointer-events-none"
+                  ></i>
+                </button>
+
+                <div
+                  class="absolute bottom-5 left-0 right-0 flex justify-center gap-2 z-10"
+                >
+                  <button
+                    onclick="goToSlide(0)"
+                    class="slider-dot h-2 w-6 rounded-full bg-slate-900 transition-all duration-300"
+                  ></button>
+                  <button
+                    onclick="goToSlide(1)"
+                    class="slider-dot h-2 w-2 rounded-full bg-slate-900/30 hover:bg-slate-900/50 transition-all duration-300"
+                  ></button>
+                  <button
+                    onclick="goToSlide(2)"
+                    class="slider-dot h-2 w-2 rounded-full bg-slate-900/30 hover:bg-slate-900/50 transition-all duration-300"
+                  ></button>
+                </div>
               </div>
             </div>
-
             <div class="flex-1 p-8 lg:p-12 flex flex-col justify-center">
               <span
                 class="text-xs font-bold tracking-widest uppercase text-slate-400 mb-2"
-                >Premium Apparel</span
-              >
+                >Premium
+              </span>
               <h1
                 class="font-bold text-3xl lg:text-4xl tracking-tight text-slate-900 leading-tight"
               >
-                Oversized Essential Tee
+                NGU - Oversized T-Shirt
               </h1>
 
               <div class="mt-4 flex items-center gap-3">
                 <p class="font-bold text-4xl text-slate-900">RM 59.90</p>
                 <p class="font-medium text-xl text-slate-400 line-through">
-                  RM 79.00
+                  RM 79.90
                 </p>
               </div>
 
@@ -132,15 +186,21 @@
                 <div id="size-picker-container" class="flex gap-3">
                   <button
                     onclick="selectSize(this)"
-                    class="size-btn px-5 h-12 border transition-all duration-200 text-sm rounded-xl font-semibold bg-red-600 border-red-600 text-white shadow-sm"
+                    class="size-btn px-5 h-12 border transition-all duration-200 text-sm rounded-xl font-semibold bg-red-600 border-red-600 text-white shadow-md shadow-red-950/10 ring-4 ring-red-600/10 scale-[1.01]"
                   >
                     M
                   </button>
                   <button
                     onclick="selectSize(this)"
-                    class="size-btn px-5 h-12 border transition-all duration-200 text-sm rounded-xl font-semibold bg-white border-slate-200 text-slate-800 hover:border-slate-400 hover:bg-slate-50"
+                    class="size-btn px-5 h-12 border transition-all duration-200 text-sm rounded-xl font-semibold bg-white border-slate-200 text-slate-700 hover:border-slate-300 hover:bg-slate-50 hover:shadow-sm hover:-translate-y-[1px] hover:text-slate-900"
                   >
                     L
+                  </button>
+                  <button
+                    onclick="selectSize(this)"
+                    class="size-btn px-5 h-12 border transition-all duration-200 text-sm rounded-xl font-semibold bg-white border-slate-200 text-slate-700 hover:border-slate-300 hover:bg-slate-50 hover:shadow-sm hover:-translate-y-[1px] hover:text-slate-900"
+                  >
+                    XL
                   </button>
                 </div>
               </div>
@@ -151,18 +211,25 @@
                 >
                   Color
                 </p>
-                <div id="color-picker-container" class="flex gap-3">
+                <div class="flex flex-wrap gap-4" id="color-options-container">
                   <button
                     onclick="selectColor(this)"
-                    class="color-btn px-5 h-12 border transition-all duration-200 text-sm rounded-xl font-semibold bg-red-600 border-red-600 text-white shadow-sm"
+                    class="color-btn group flex items-center gap-3 p-1.5 pr-5 border-2 rounded-full text-sm font-semibold transition-all duration-200 bg-white border-slate-200 text-slate-500 hover:border-slate-300 hover:bg-slate-50 hover:shadow-sm"
                   >
-                    Nature
+                    <span
+                      class="color-swatch w-8 h-8 rounded-full bg-black shadow-inner border border-slate-200 transition-transform duration-200 group-hover:scale-105"
+                    ></span>
+                    <span>Black</span>
                   </button>
+
                   <button
                     onclick="selectColor(this)"
-                    class="color-btn px-5 h-12 border transition-all duration-200 text-sm rounded-xl font-semibold bg-white border-slate-200 text-slate-800 hover:border-slate-400 hover:bg-slate-50"
+                    class="color-btn group flex items-center gap-3 p-1.5 pr-5 border-2 rounded-full text-sm font-semibold transition-all duration-200 bg-white border-slate-900 text-slate-900 shadow-sm ring-4 ring-slate-900/5 scale-[1.02]"
                   >
-                    Black
+                    <span
+                      class="color-swatch w-8 h-8 rounded-full bg-[#E5D3B3] shadow-inner border border-slate-200 transition-transform duration-200 group-hover:scale-105"
+                    ></span>
+                    <span>Natural</span>
                   </button>
                 </div>
               </div>
@@ -172,7 +239,7 @@
                 class="text-xs text-slate-400 font-medium mt-4"
               >
                 Size: M | Color:
-                <span class="text-red-600 font-semibold">Red</span>
+                <span class="text-slate-900 font-bold">Natural</span>
               </p>
 
               <div class="mt-6">
@@ -397,23 +464,83 @@
     </div>
 
     <script>
+      // --- Slider State & Logic ---
+      let currentSlide = 0;
+      const totalSlides = 4;
+
+      function updateSlider() {
+        const track = document.getElementById("slider-track");
+        const dots = document.querySelectorAll(".slider-dot");
+
+        track.style.transform = `translateX(-${currentSlide * 100}%)`;
+
+        dots.forEach((dot, index) => {
+          if (index === currentSlide) {
+            dot.className =
+              "slider-dot h-2 w-6 rounded-full bg-slate-900 transition-all duration-300";
+          } else {
+            dot.className =
+              "slider-dot h-2 w-2 rounded-full bg-slate-900/30 hover:bg-slate-900/50 transition-all duration-300";
+          }
+        });
+      }
+
+      function moveSlide(direction) {
+        currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
+        updateSlider();
+      }
+
+      function goToSlide(index) {
+        currentSlide = index;
+        updateSlider();
+      }
+
+      // --- Cart & UI State ---
       let currentSize = "M";
-      let currentColor = "Red";
+      let currentColor = "Natural";
       let qty = 1;
       let cart = [];
 
+      // Base arrays for sizes
       const activeClasses = [
         "bg-red-600",
         "border-red-600",
         "text-white",
-        "shadow-sm",
+        "shadow-md",
+        "shadow-red-950/10",
+        "ring-4",
+        "ring-red-600/10",
+        "scale-[1.01]",
       ];
       const inactiveClasses = [
         "bg-white",
         "border-slate-200",
-        "text-slate-800",
-        "hover:border-slate-400",
+        "text-slate-700",
+        "hover:border-slate-300",
         "hover:bg-slate-50",
+        "hover:shadow-sm",
+        "hover:-translate-y-[1px]",
+        "hover:text-slate-900",
+      ];
+
+      // Premium neutral states for color buttons
+      const inactiveClassesForColor = [
+        "bg-white",
+        "border-slate-200",
+        "text-slate-500",
+        "hover:border-slate-300",
+        "hover:bg-slate-50",
+        "hover:shadow-sm",
+      ];
+
+      const activeClassesForColor = [
+        "bg-white",
+        "border-slate-900",
+        "text-slate-900",
+        "shadow-sm",
+        "ring-4",
+        "ring-slate-900/5",
+        "scale-[1.02]",
       ];
 
       function selectSize(btn) {
@@ -430,11 +557,11 @@
 
       function selectColor(btn) {
         document.querySelectorAll(".color-btn").forEach((b) => {
-          b.classList.remove(...activeClasses);
-          b.classList.add(...inactiveClasses);
+          b.classList.remove(...activeClassesForColor);
+          b.classList.add(...inactiveClassesForColor);
         });
-        btn.classList.remove(...inactiveClasses);
-        btn.classList.add(...activeClasses);
+        btn.classList.remove(...inactiveClassesForColor);
+        btn.classList.add(...activeClassesForColor);
 
         currentColor = btn.textContent.trim();
         updateSelectionStatus();
@@ -442,23 +569,18 @@
 
       function updateSelectionStatus() {
         const statusElement = document.getElementById("selection-status");
-        if (currentColor.toLowerCase() === "red") {
-          statusElement.innerHTML = `Size: ${currentSize} | Color: <span class="text-red-600 font-semibold">Red</span>`;
-        } else {
-          statusElement.textContent = `Size: ${currentSize} | Color: ${currentColor}`;
-        }
+        statusElement.innerHTML = `Size: ${currentSize} | Color: <span class="text-slate-900 font-bold">${currentColor}</span>`;
       }
 
       function changeQty(delta) {
-        // Math.max ensures it doesn't go below 1
-        // Math.min ensures it doesn't go above 10
         qty = Math.min(10, Math.max(1, qty + delta));
         document.getElementById("qty-display").textContent = qty;
       }
+
       function addToCart() {
         const existingItemIndex = cart.findIndex(
           (item) =>
-            item.name === "Oversized Essential Tee" &&
+            item.name === "NGU - Oversized T-Shirt" &&
             item.size === currentSize &&
             item.color === currentColor,
         );
@@ -467,7 +589,7 @@
           cart[existingItemIndex].qty += qty;
         } else {
           cart.push({
-            name: "Oversized Essential Tee",
+            name: "NGU - Oversized T-Shirt",
             price: 59,
             size: currentSize,
             color: currentColor,
