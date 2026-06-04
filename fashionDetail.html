@@ -185,11 +185,18 @@
               >
             </div>
 
-            <!-- ==================== IMPROVED SECTIONS ==================== -->
-
             <div class="space-y-8 my-4">
-              <!-- Select Size -->
               <div>
+                <label
+                  class="text-xs font-bold uppercase tracking-wider text-slate-500 block mb-3 flex items-center gap-1"
+                >
+                  SELECT SIZE:
+                  <span
+                    id="selected-size-label"
+                    class="text-slate-900 font-extrabold ml-1"
+                    >M</span
+                  >
+                </label>
                 <div class="flex flex-wrap gap-3" id="size-options-container">
                   <button
                     onclick="selectSizeOption(this, 'M')"
@@ -212,7 +219,6 @@
                 </div>
               </div>
 
-              <!-- Select Color -->
               <div>
                 <label
                   class="text-xs font-bold uppercase tracking-wider text-slate-500 block mb-3 flex items-center gap-1"
@@ -246,7 +252,6 @@
                 </div>
               </div>
 
-              <!-- Quantity -->
               <div>
                 <label
                   class="text-xs font-bold uppercase tracking-wider text-slate-500 block mb-3"
@@ -279,8 +284,6 @@
               </div>
             </div>
 
-            <!-- ======================================================= -->
-
             <div
               class="text-gray-600 space-y-4 text-sm md:text-base leading-relaxed mt-2"
             >
@@ -297,22 +300,22 @@
               </p>
               <ul class="space-y-2 pt-2 border-t border-gray-100 text-sm">
                 <li class="flex items-center gap-2">
-                  <span class="text-emerald-500">✓</span
-                  ><span
+                  <span class="text-emerald-500">✓</span>
+                  <span
                     ><strong>Heavyweight Premium Knit:</strong> Thick,
                     soft-touch fabric that holds its shape.</span
                   >
                 </li>
                 <li class="flex items-center gap-2">
-                  <span class="text-emerald-500">✓</span
-                  ><span
+                  <span class="text-emerald-500">✓</span>
+                  <span
                     ><strong>Signature Boxy Fit:</strong> Perfect drop-shoulder
                     drape that sits flawlessly.</span
                   >
                 </li>
                 <li class="flex items-center gap-2">
-                  <span class="text-emerald-500">✓</span
-                  ><span
+                  <span class="text-emerald-500">✓</span>
+                  <span
                     ><strong>Durable Stay-Flat Collar:</strong> Engineered to
                     resist stretching over time.</span
                   >
@@ -365,13 +368,17 @@
         updateSliderDisplay();
       }
 
-      // Improved Size Selection
+      // Fixed Size Selection Logic
       function selectSizeOption(element, valueStr) {
         document.querySelectorAll(".size-btn").forEach((btn) => {
           btn.classList.remove("active");
         });
         element.classList.add("active");
         chosenSelectedSize = valueStr;
+
+        // Sync text element safely
+        const label = document.getElementById("selected-size-label");
+        if (label) label.textContent = valueStr;
       }
 
       // Improved Color Selection
